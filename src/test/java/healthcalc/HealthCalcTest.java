@@ -1,6 +1,7 @@
 package healthcalc;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -9,12 +10,6 @@ import org.junit.jupiter.api.Test;
 public class HealthCalcTest {
 	
 	HealthCalc calculator = new HealthCalcImpl();
-
-	@Test
-	@DisplayName("Esto es un test de ejemplo.")
-	public void bmi() {
-		assertEquals(true, true);
-	}
 	
 	/*
 	 * Tests para el método idealWeight() de la clase HealthCalcImpl.
@@ -25,19 +20,28 @@ public class HealthCalcTest {
 	@Test
 	@DisplayName("Este test verifica si devuelve correctamente el peso ideal masculino.")
 	public void testIdealWeightMen() throws Exception {
-		// Completar
+		int heightMen = 180;
+		char genderMen = 'm';
+		float expectedMen = heightMen-100-((heightMen-150)/4);
+		assertEquals(expectedMen, calculator.idealWeight(heightMen, genderMen));
 	}
 	
 	@Test
 	@DisplayName("Este test verifica si devuelve correctamente el peso ideal femenino.")
 	public void testIdealWeightWomen() throws Exception {
-		// Completar
+		int heightWomen = 165;
+		char genderWomen = 'w';
+		float expectedMen = (float)(heightWomen-100-((heightWomen-150)/2.5));
+		assertEquals(expectedMen, calculator.idealWeight(heightWomen, genderWomen));
 	}
 
 	@Test
 	@DisplayName("Este test verifica si lanza correctamente la excepción en el método idealWeight() en caso de altura inválida.")
 	public void testIdealWeightInvalidHeight() throws Exception {
-		// Completar
+		int invalidHeight= 0;
+		char gender = 'w';
+		float expectedMen = (float)(invalidHeight-100-((invalidHeight-150)/2.5));
+		assertThrows(Exception.class, () -> calculator.idealWeight(invalidHeight, gender));
 	}
 
 	@Test
