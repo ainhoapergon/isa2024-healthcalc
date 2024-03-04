@@ -7,7 +7,7 @@ public class HealthCalcImpl implements HealthCalc {
 
         if (height <= 0) {
             throw new Exception("Invalid Height");
-        } if (gender != 'm' | gender != 'w') {
+            } if (gender != 'm' && gender != 'w') {
             throw new Exception("Invalid Gender");
         }
 
