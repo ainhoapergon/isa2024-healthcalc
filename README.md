@@ -1,7 +1,7 @@
 # Health calculator
   
-**Project title: isa2024-healtcalc**
-**Author: Ainhoa Pérez González**
+- **Project title: isa2024-healtcalc**
+- **Author: Ainhoa Pérez González**
 
 This calculator is designed to calculate *ideal weight* and *Basal Metabolic Rate (BMR)* for an individual.
 We have two methods in our java class HealthCalcImpl.java for each calculation: idealWeight() and basalMetabolicRate().
@@ -12,7 +12,7 @@ All the possible input parameters are:
 - Weight (in kilograms).
 - Age (in years).
 
-Both methods handle possible exceptions if the individual has any invalid parameter (explained ahead in the **Health Calculator Test Cases section**)
+Both methods handle possible exceptions (errors) if the individual has any invalid parameter (explained ahead in the **Health Calculator Test Cases section**)
 
 # Repository state
 
@@ -21,6 +21,7 @@ This repository has the following structure:
 - HealthCalcImpl branch which contains every changes or corrections on both tests and the main java class codes.
 
 Here is the diagram with all the "commits" used:
+
 ![Commits image](./images/commits.png "All commits")
 
 (All the images uploaded into GitHub were also a commit named "Subida de fotos para completar archivo README.md" but this
@@ -29,6 +30,7 @@ last commit was done after taking the screenshot. Also the final commit to post 
 # Health Calculator Test Cases
 
 This section outlines the test cases for the Health Calculator.
+
 ![Tests image](./images/tests.png "Test Results")
 
 Here is a short explanation of each one:
