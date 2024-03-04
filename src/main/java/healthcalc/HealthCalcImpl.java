@@ -29,7 +29,7 @@ public class HealthCalcImpl implements HealthCalc {
             throw new Exception("Invalid Height");
         } if (age <= 0) {
             throw new Exception("Invalid Age");
-        } if (gender != 'm' | gender != 'w') {
+        } if (gender != 'm' && gender != 'w') {
             throw new Exception("Invalid Gender");
         }
 
