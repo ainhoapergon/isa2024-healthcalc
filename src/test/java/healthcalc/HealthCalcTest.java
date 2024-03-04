@@ -38,16 +38,19 @@ public class HealthCalcTest {
 	@Test
 	@DisplayName("Este test verifica si lanza correctamente la excepción en el método idealWeight() en caso de altura inválida.")
 	public void testIdealWeightInvalidHeight() throws Exception {
-		int invalidHeight= 0;
+		int invalidHeight = -10;
 		char gender = 'w';
-		float expectedMen = (float)(invalidHeight-100-((invalidHeight-150)/2.5));
 		assertThrows(Exception.class, () -> calculator.idealWeight(invalidHeight, gender));
+		assertEquals("Invalid Height", (assertThrows(Exception.class, () -> calculator.idealWeight(invalidHeight, gender))).getMessage());
 	}
 
 	@Test
-	@DisplayName("Este test verifica si lanza correctamente la excepción  en el método idealWeight() en caso de género inválido.")
+	@DisplayName("Este test verifica si lanza correctamente la excepción en el método idealWeight() en caso de género inválido.")
 	public void testIdealWeightInvalidGender() throws Exception {
-		// Completar
+		int height = 180;
+		char InvalidGender = 'f';
+		assertThrows(Exception.class, () -> calculator.idealWeight(height, InvalidGender));
+		assertEquals("Invalid Gender", (assertThrows(Exception.class, () -> calculator.idealWeight(height, InvalidGender))).getMessage());
 	}
 
 	/*
@@ -59,36 +62,67 @@ public class HealthCalcTest {
 	@Test
 	@DisplayName("Este test verifica si devuelve correctamente la TMB para género masculino.")
 	public void testBMRMen() throws Exception {
-		// Completar
+		float weightMen = 90;
+		int heightMen = 180;
+		char genderMen = 'm';
+		int ageMen = 50;
+		float BMRMen = (float)(10*weightMen+6.25*heightMen-5*ageMen+5);
+		assertEquals(BMRMen, calculator.basalMetabolicRate(weightMen, heightMen, genderMen, ageMen));
 	}
 
 	@Test
 	@DisplayName("Este test verifica si devuelve correctamente la TMB para género femenino.")
 	public void testBMRWomen() throws Exception {
-		// Completar
+		float weightWomen = 55;
+		int heightWomen = 160;
+		char genderWomen = 'w';
+		int ageWomen = 30;
+		float BMRWomen = (float)(10*weightWomen*6.25*heightWomen-5*ageWomen-161);
+		assertEquals(BMRWomen, calculator.basalMetabolicRate(weightWomen, heightWomen, genderWomen, ageWomen));
 	}
 
 	@Test
 	@DisplayName("Este test verifica si lanza correctamente la excepción en el método basalMetabolicRate() en caso de género inválido.")
 	public void testBMRInvalidGender() throws Exception {
-		// Completar
+		float weight = 70;
+		int height = 165;
+		char invalidGender = 'f';
+		int age = 45;
+		assertThrows(Exception.class, () -> calculator.basalMetabolicRate(weight, height, invalidGender, age));
+		assertEquals("Invalid Gender", (assertThrows(Exception.class, () -> calculator.basalMetabolicRate(weight, height, invalidGender, age))).getMessage());
 	}
 
 	@Test
 	@DisplayName("Este test verifica si lanza correctamente la excepción en el método basalMetabolicRate() en caso de edad inválida.")
 	public void testBMRInvalidAge() throws Exception {
-		// Completar
+		float weight = 70;
+		int height = 165;
+		char gender = 'w';
+		int invalidAge = 0;
+		assertThrows(Exception.class, () -> calculator.basalMetabolicRate(weight, height, gender, invalidAge));
+		assertEquals("Invalid Age", (assertThrows(Exception.class, () -> calculator.basalMetabolicRate(weight, height, gender, invalidAge))).getMessage());
 	}
+
 
 	@Test
 	@DisplayName("Este test verifica si lanza correctamente la excepción en el método basalMetabolicRate() en caso de altura inválida.")
 	public void testBMRInvalidHeight() throws Exception {
-		// Completar
+		float weight = 70;
+		int invalidHeight = -10;
+		char gender = 'w';
+		int age = 30;
+		assertThrows(Exception.class, () -> calculator.basalMetabolicRate(weight, invalidHeight, gender, age));
+		assertEquals("Invalid Height", (assertThrows(Exception.class, () -> calculator.basalMetabolicRate(weight, invalidHeight, gender, age))).getMessage());
 	}
 
 	@Test
 	@DisplayName("Este test verifica si lanza correctamente la excepción en el método basalMetabolicRate() en caso de peso inválido.")
 	public void testBMRInvalidWeight() throws Exception {
-		// Completar
+		float invalidWeight = -70;
+		int height = 175;
+		char gender = 'w';
+		int age = 35;
+		assertThrows(Exception.class, () -> calculator.basalMetabolicRate(invalidWeight, height, gender, age));
+		assertEquals("Invalid Weight", (assertThrows(Exception.class, () -> calculator.basalMetabolicRate(invalidWeight, height, gender, age))).getMessage());
 	}
 }
