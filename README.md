@@ -99,6 +99,26 @@ I will be using **Dia Diagram Editor** to create my diagrams (it is a free softw
 
 ## Use cases - First diagram
 
+In this first diagram we can see that the person (actor) can use the system to calculate the ideal weight or the basal metabolic rate (BMR). In order to do that, the person must enter the parameters needed for every calculation (for example, when calculating ideal weight, the person must enter height and gender). The system will handle the possible errors when entering a wrong parameter (for example, when entering a negative age).
 
+![Diagram1 image](./images/UseCases1.png "Use Cases 1")
+
+### Use case: Calculate Basal Metabolic Rate (BMR)
+
+In this section I will be specifying some aspects for the use case for calculating the basal metabolic rate in our calculator.
+
+- **Use Case Name**: Calculate Basal Metabolic Rate (BMR)ç
+- **Primary Actor**: Person
+- **Scope**: Health Calculator Application
+- **Level**: User-goal level
+- **Stakeholders and interests**:
+  - A person who wants to know their BMR for a fitness planning.
+  - A nutritionist or other health professional that find useful calculating BMR to provide dietary or exercise guidance.
+- **Preconditions**: The calculator application is operational and accesible to the person.
+- **Minimum guarantees**: The calculator will not crash and will handle invalid parameters.
+- **Success guarantees**: The BMR will be calculated correctly according to the provided inputs.
+- **Main success Scenario**: The person introduces valid parameters and the calculator displays the person's BMR.
+- **Alternate Scenario**: The person introduces invalid parameters and the calculator shows an error.
+- **Possible Extensions**: The calculator could allow the person to log in and save their data for future use.
 
 ## Use cases - Second diagram
