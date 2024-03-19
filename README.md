@@ -123,6 +123,6 @@ In this section I will be specifying some aspects for the use case for calculati
 
 ## Use cases - Second diagram
 
-Now I will be creating another use cases diagram but implementing two more possible use cases. The calculator could be able to calculate the ideal weight, basal metabolic rate (BMR), heart rate zones and Body Mass Index (BMI). The heart rate zone can be calculated approximately using the age. The BMI can be calculated using weight and height. So it won't be necessary to add more parameters to our calculator. The second use cases diagram implementing those new cases should look like:
+Now I will be creating another use cases diagram but implementing two more possible use cases. The calculator could be able to calculate the ideal weight, basal metabolic rate (BMR), heart rate zones and Body Mass Index (BMI). **Heart rate zones** are typically calculated using a person's maximum heart rate (MHR) and resting heart rate (RHR). However, MHR can be estimated only using age if the actual max heart rate is not known. The **BMI** can be calculated using weight and height, knowing that the formula is weight(kg)/height^2(m). So it won't be necessary to add more parameters to our calculator. The second use cases diagram implementing those new cases should look like:
 
 ![Diagram2 image](./images/UseCases2.png "Use Cases 2")
