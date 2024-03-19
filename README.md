@@ -107,7 +107,7 @@ In this first diagram we can see that the person (actor) can use the system to c
 
 In this section I will be specifying some aspects for the use case for calculating the basal metabolic rate in our calculator.
 
-- **Use Case Name**: Calculate Basal Metabolic Rate (BMR)ç
+- **Use Case Name**: Calculate Basal Metabolic Rate (BMR)
 - **Primary Actor**: Person
 - **Scope**: Health Calculator Application
 - **Level**: User-goal level
@@ -122,3 +122,7 @@ In this section I will be specifying some aspects for the use case for calculati
 - **Possible Extensions**: The calculator could allow the person to log in and save their data for future use.
 
 ## Use cases - Second diagram
+
+Now I will be creating another use cases diagram but implementing two more possible use cases. The calculator could be able to calculate the ideal weight, basal metabolic rate (BMR), heart rate zones and Body Mass Index (BMI). The heart rate zone can be calculated approximately using the age. The BMI can be calculated using weight and height. So it won't be necessary to add more parameters to our calculator. The second use cases diagram implementing those new cases should look like:
+
+![Diagram2 image](./images/UseCases1.png "Use Cases 2")
