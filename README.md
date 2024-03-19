@@ -3,6 +3,8 @@
 - **Project title: isa2024-healtcalc**
 - **Author: Ainhoa Pérez González**
 
+# Practice 1
+
 This calculator is designed to calculate *ideal weight* and *Basal Metabolic Rate (BMR)* for an individual.
 We have two methods in our java class HealthCalcImpl.java for each calculation: idealWeight() and basalMetabolicRate().
 
@@ -59,33 +61,44 @@ Here is a short explanation of each one:
 
 ## Basal Metabolic Rate Calculation
 
-- **Test Case 4: Basal Metabolic Rate for Men**
+- **Test Case 5: Basal Metabolic Rate for Men**
   - Description: Calculate the BMR for a man based on his weight, height, and age.
   - Input: Weight (in kilograms), height (in centimeters), gender ('m'), age (in years).
   - Expected Output: BMR value.
 
-- **Test Case 5: Basal Metabolic Rate for Women**
+- **Test Case 6: Basal Metabolic Rate for Women**
   - Description: Calculate the BMR for a woman based on her weight, height, and age.
   - Input: Weight (in kilograms), height (in centimeters), gender('w'), age (in years).
   - Expected Output: BMR value.
 
-- **Test Case 6: Invalid Gender for BMR**
+- **Test Case 7: Invalid Gender for BMR**
   - Description: Ensure the calculator throws an error when invalid gender is entered for BMR calculation.
   - Input: Invalid gender character (other than 'm' or 'w').
   - Expected Outcome: An error message indicating that gender is invalid.
 
-- **Test Case 7: Invalid Age for BMR**
+- **Test Case 8: Invalid Age for BMR**
   - Description: Ensure the calculator throws an error when invalid age is entered for BMR calculation.
   - Input: Negative or zero values for age.
   - Expected Outcome: An error message indicating that age is invalid.
 
-- **Test Case 8: Invalid Height for BMR**
+- **Test Case 9: Invalid Height for BMR**
   - Description: Ensure the calculator throws an error when invalid height is entered for BMR calculation.
   - Input: Negative or zero values for height.
   - Expected Outcome: An error message indicating that height is invalid.
 
-- **Test Case 9: Invalid Weight for BMR**
+- **Test Case 10: Invalid Weight for BMR**
   - Description: Ensure the calculator throws an error when invalid weight is entered for BMR calculation.
   - Input: Negative or zero values weight.
   - Expected Outcome: An error message indicating that weight is invalid.
 
+# Practice 2
+
+In this practice we will be seeing the use cases for our calculator. The use cases diagram is a method for describing the functional requirements of a system from the perspective of its users. In this diagram we see the actors and the actions we can achieve using the system.
+
+I will be using **Dia Diagram Editor** to create my diagrams (it is a free software).
+
+## Use cases - First diagram
+
+
+
+## Use cases - Second diagram
