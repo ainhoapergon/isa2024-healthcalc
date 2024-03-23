@@ -157,9 +157,9 @@ Now I will be creating another use cases diagram but implementing two more possi
 
 ### User Story 2: Basal Metabolic Rate (BMR) Calculation
 
-- As a [person using the calculator]
-- I want [to calculate my BMR]
-- So that [I can establish a diet with the calories I should consume to maintain my current weight]
+- As a **person using the calculator**
+- I want **to calculate my BMR**
+- So that **I can establish a diet with the calories I should consume to maintain my current weight**
 
 *Acceptance Criteria:*
     
@@ -190,9 +190,11 @@ Now I will be creating another use cases diagram but implementing two more possi
 
 ## BDD Tests using Cucumber
 
-In file "doc" we can see the implementation of the BDD tests using cucumber. When executing them all, we get the following exit in console:
+We have two feature archives for every user story: "bmr.feature" and "idealw.feature". Also we have the Step Definitions according to each scenario.
+
+In file "output_tests.txt" inside "doc", we can check out the exit in console when running the BDD tests using cucumber:
 
 ![Tests image](./images/testsCucumber.png "Cucumber tests")
 
-We can check out the full on "output_tests.txt".  
+ 
 
