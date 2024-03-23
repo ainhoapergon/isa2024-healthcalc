@@ -126,3 +126,66 @@ In this section I will be specifying some aspects for the use case for calculati
 Now I will be creating another use cases diagram but implementing two more possible use cases. The calculator could be able to calculate the ideal weight, basal metabolic rate (BMR), heart rate zones and Body Mass Index (BMI). **Heart rate zones** are typically calculated using a person's maximum heart rate (MHR) and resting heart rate (RHR). However, MHR can be estimated only using age if the actual max heart rate is not known. The **BMI** can be calculated using weight and height, knowing that the formula is weight(kg)/height^2(m). So it won't be necessary to add more parameters to our calculator. The second use cases diagram implementing those new cases should look like:
 
 ![Diagram2 image](./images/UseCases2.png "Use Cases 2")
+
+# Practice 3
+
+## User Stories for Health Calc
+
+### User Story 1: Ideal Weight Calculation
+
+- As a **person using the calculator**
+- I want **to calculate my ideal weight**
+- So that **I can establish a fitness planning based on my results**
+
+*Acceptance Criteria:*
+
+* First Scenario:
+  - **Given**: an user that enters correctly their height and gender.
+  - **When**: the user requests to calculate the ideal weight.
+  - **Then**: the calculator returns the ideal weight according to their data.
+    
+* Second Scenario:
+  - **Given**: an user that enters valid height and invalid gender.
+  - **When**: the user requests to calculate the ideal weight.
+  - **Then**: the calculator returns an error message saying "Invalid Gender".
+
+* Third Scenario:
+  - **Given**: an user that enters invalid height and valid gender
+  - **When**: the user requests to calculate the ideal weight
+  - **Then**: the calculator returns an error message saying "Invalid Height"
+
+
+### User Story 2: Basal Metabolic Rate (BMR) Calculation
+
+- As a [person using the calculator]
+- I want [to calculate my BMR]
+- So that [I can establish a diet with the calories I should consume to maintain my current weight]
+
+*Acceptance Criteria:*
+    
+* First Scenario:
+  - **Given**: an user that enters correctly weight, height, gender and age.
+  - **When**: the user requests to calculate BMR.
+  - **Then**: the calculator returns the BMR according to their data.
+    
+* Second Scenario:
+  - **Given**: an user that enters valid weight, height, gender but invalid age.
+  - **When**:  the user requests to calculate BMR.
+  - **Then**: the calculator returns an error message saying "Invalid Age".
+    
+* Third Scenario:
+  - **Given**: an user that enters valid weight, height, age but invalid gender.
+  - **When**:  the user requests to calculate BMR.
+  - **Then**: the calculator returns an error message saying "Invalid Gender".
+    
+* Fourth Scenario:
+  - **Given**: an user that enters valid weight, age, gender but invalid height.
+  - **When**: the user requests to calculate BMR.
+  - **Then**: the calculator returns an error message saying "Invalid Height".
+    
+* Fifth Scenario:
+  - **Given**: an user that enters valid height, age, gender but invalid weight.
+  - **When**: the user requests to calculate BMR.
+  - **Then**: the calculator returns an error message saying "Invalid Weight".
+
+
