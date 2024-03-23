@@ -36,7 +36,7 @@ public class HealthCalcImpl implements HealthCalc {
         if (gender == 'm') {
             BMR = (float)(10*weight+6.25*height-5*age+5);
         } else {
-            BMR = (float)(10*weight*6.25*height-5*age-161);
+            BMR = (float)(10*weight+6.25*height-5*age-161);
         }
 
         return BMR;
