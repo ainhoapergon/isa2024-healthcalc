@@ -2,13 +2,10 @@ package healthcalc.Cucumber;
 
 import org.junit.jupiter.api.Assertions;
 
-//import org.junit.jupiter.api.Assertions;
-
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-// import static org.junit.Assert.*;
 import healthcalc.HealthCalcImpl;
 
 public class StepDefinitions {
@@ -35,7 +32,7 @@ public class StepDefinitions {
     }
 
 	@Then("The system returns {float}")
-    public void the_system_returns(float expected) {
+    public void the_system_returns(double expected) {
         Assertions.assertEquals(expected, result, 0.01);
     }
 

@@ -188,4 +188,11 @@ Now I will be creating another use cases diagram but implementing two more possi
   - **When**: the user requests to calculate BMR.
   - **Then**: the calculator returns an error message saying "Invalid Weight".
 
+## BDD Tests using Cucumber
+
+In file "doc" we can see the implementation of the BDD tests using cucumber. When executing them all, we get the following exit in console:
+
+![Tests image](./images/testsCucumber.png "Cucumber tests")
+
+We can check out the full on "output_tests.txt".  
 
