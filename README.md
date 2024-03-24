@@ -1,7 +1,15 @@
 # Health calculator
   
-- **Project title: isa2024-healtcalc**
-- **Author: Ainhoa Pérez González**
+> **Project title: isa2024-healtcalc**
+
+> **Author: Ainhoa Pérez González**
+
+*Content:*
+
+- [Practice 1](#practice-1)
+- [Practice 2](#practice-2)
+- [Practice 3](#practice-3)
+
 
 # Practice 1
 
@@ -9,14 +17,17 @@ This calculator is designed to calculate *ideal weight* and *Basal Metabolic Rat
 We have two methods in our java class HealthCalcImpl.java for each calculation: idealWeight() and basalMetabolicRate().
 
 All the possible input parameters are:
-- Height (in centimeters).
-- Gender ('m' for man and 'w' for woman).
-- Weight (in kilograms).
-- Age (in years).
+
+| Parameters | Measurements                 |
+|------------|------------------------------|
+|  Height    | in centimeters               |
+|  Gender    |'m' for man and 'w' for woman |
+|  Weight    | in kilograms                 |
+|  Age       | in years                     |
 
 Both methods handle possible exceptions (errors) if the individual has any invalid parameter (explained ahead in the **Health Calculator Test Cases section**)
 
-# Repository state
+## Repository state
 
 This repository has the following structure:
 - Main branch which contains the final code.
@@ -29,7 +40,7 @@ Here is the diagram with all the "commits" used:
 (All the images uploaded into GitHub were also a commit named "Subida de fotos para completar archivo README.md" but this
 last commit was done after taking the screenshot. Also the final commit to post the final "README.md" is called "Actualización README.md").
 
-# Health Calculator Test Cases
+## Health Calculator Test Cases
 
 This section outlines the test cases for the Health Calculator.
 
@@ -37,7 +48,8 @@ This section outlines the test cases for the Health Calculator.
 
 Here is a short explanation of each one:
 
-## Ideal Weight Calculation
+
+### Ideal Weight Calculation
 
 - **Test Case 1: Ideal Weight for Men**
   - Description: Calculate the ideal weight for a man based on his height.
@@ -59,7 +71,7 @@ Here is a short explanation of each one:
   - Input: Invalid gender character (other than 'm' or 'w').
   - Expected Outcome: An error message indicating the gender is invalid.
 
-## Basal Metabolic Rate Calculation
+### Basal Metabolic Rate Calculation
 
 - **Test Case 5: Basal Metabolic Rate for Men**
   - Description: Calculate the BMR for a man based on his weight, height, and age.
@@ -190,11 +202,15 @@ Now I will be creating another use cases diagram but implementing two more possi
 
 ## BDD Tests using Cucumber
 
-We have two feature archives for every user story: "bmr.feature" and "idealw.feature". Also we have the Step Definitions according to each scenario.
+We have two feature archives for every user story: ["bmr.feature"](./src/test/java/healthcalc/resources/bmr.feature) and ["idealw.feature"](./src/test/java/healthcalc/resources/idealw.feature.feature). Also we have the Step Definitions according to each scenario.
 
-In file "output_tests.txt" inside "doc", we can check out the exit in console when running the BDD tests using cucumber:
+In file ["output_tests.txt"](./doc/output_tests.txt) we can check out the exit in console when running the BDD tests using cucumber:
 
 ![Tests image](./images/testsCucumber.png "Cucumber tests")
+
+ 
+
+
 
  
 
