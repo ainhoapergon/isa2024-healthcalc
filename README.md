@@ -9,6 +9,7 @@
 - [Practice 1](#practice-1)
 - [Practice 2](#practice-2)
 - [Practice 3](#practice-3)
+- [Practice 4](#practice-4)
 
 
 # Practice 1
@@ -209,6 +210,28 @@ In file ["output_tests.txt"](./doc/output_tests.txt) we can check out the exit i
 ![Tests image](./images/testsCucumber.png "Cucumber tests")
 
  
+# Practice 4
+
+In this section, we will design the graphical interface of our calculator. First, we will create a **prototype interface** using the mockup design software "Pencil Project". Then, we will **develop the interface** with the help of the extension for the Eclipse IDE "Windows Builder".
+
+## Prototype interface
+
+As mentioned, I will be using "Pencil Project" to create the prototype. This previous design pops up two windows: one to use the calculator and the other one that shows up the result.
+
+### Health Calculator Window
+
+This window contains various panels. The first one is the introducing data section where the user must enter their gender, age, weight and height. Afterwards the data has been introduced, the user must select the calculation that wants to be computed. When every valid data is entered and the calculation has been selected, the user must press the button "Calculate". Meanwhile, the system will give some feedback on the calculation process (a progress bar for example).
+
+### Results Window
+
+This window contains the result. There are two more buttons here: the "Go back" button and the "New Calculation" button.
+
+- "Go back": This button will close the results window and take the user back to the health calculator saving the data introduced before, if there is a need to change any parameter or make another calculation with the same data.
+- "New calculation": This button will close the results window and take the user back but clearing the previous data from the health calculation to use it again.
+
+Here an image of both windows for the interface:
+
+![Prototype interface](./images/prototipo.png "Prototype interface")
 
 
 
