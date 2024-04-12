@@ -33,4 +33,32 @@ public interface HealthCalc {
 	 * @throws Exception
 	 */
 	public float basalMetabolicRate(float weight, int height, char gender, int age) throws Exception;
+
+
+	/**
+	 * Calculate the Body Mass Index (BMI) of a person with the following formula:
+	 * BMI = weight/height^2
+	 *   
+	 * @param weight	Weight of the person (kg).
+	 * @param height 	Height of the person (cm).
+	 * @return	  		The Body Mass Index of the person.
+	 * @throws Exception
+	 */
+	public float bodyMassIndex(float weight, int height) throws Exception;
+
+	/**
+	 * Calculate the estimated heart rate zones of a person using the age.
+	 * HeartRate = 220-age
+	 * 
+	 * For moderate-intensity physical activity:
+	 * 64% HeartRate - 76% HeartRate
+	 * 
+	 * For vigorous-intensity physical activity:
+	 * 77% HeartRate - 93% HeartRate
+	 *   
+	 * @param age		Age of the person.
+	 * @return	  		The estimated heart rate zones.
+	 * @throws Exception
+	 */
+	public String heartRateZones(int age) throws Exception;
 }
