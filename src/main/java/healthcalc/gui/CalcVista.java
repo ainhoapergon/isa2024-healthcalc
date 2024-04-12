@@ -176,9 +176,6 @@ public class CalcVista extends JFrame {
 		bg.add(rbtnBMI);
 		bg.add(rbtnBMR);
 		bg.add(rbtnHRZ);
-		
-		Component horizontalStrut_5 = Box.createHorizontalStrut(20);
-		panelSur.add(horizontalStrut_5);
 	}
 
 	public String getGender() {
