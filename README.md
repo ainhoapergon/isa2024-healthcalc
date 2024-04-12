@@ -226,14 +226,27 @@ This window contains various panels. The first one is the introducing data secti
 
 This window contains the result. There are two more buttons here: the "Go back" button and the "New Calculation" button.
 
-- "Go back": This button will close the results window and take the user back to the health calculator saving the data introduced before, if there is a need to change any parameter or make another calculation with the same data.
-- "New calculation": This button will close the results window and take the user back but clearing the previous data from the health calculation to use it again.
+- **Go back**: This button will close the results window and take the user back to the health calculator saving the data introduced before, if there is a need to change any parameter or make another calculation with the same data.
+- **New calculation**: This button will close the results window and take the user back but clearing the previous data from the health calculation to use it again.
 
-Here an image of both windows for the interface:
+Here an image of both windows for the interface. I could not change the background colours or any other details as it is a prototype.
 
 ![Prototype interface](./images/prototipo.png "Prototype interface")
 
+## Graphical interface
+
+In this section I developed a MVC (Model-View-Controller) for my calculator. I created two views (one for the calculator and another one for the results), the controller and the main program to execute and initialize them all. You can find all these archives on folder "gui" inside src/main. Here is the shortcut:
+
+- ["Calculator View"](./src/main/java/healthcalc/gui/CalcVista.java)
+- ["Results View"](./src/main/java/healthcalc/gui/ResultVista.java)
+- ["Controller"](./src/main/java/healthcalc/gui/Controlador.java)
+- ["Main program"](./src/main/java/healthcalc/gui/Main.java)
+
+When I finished all these sections, I made a [".jar runnable"](HealthCalculator.jar) using Eclipse IDE. These archive can be executed in terminal using the following command on the current directory: "java -jar HealthCalculator.jar".
+
+Here is the final view when executing it:
+
+![Graphical interface](./images/interfazGrafica.png "Graphical interface")
 
 
- 
 
