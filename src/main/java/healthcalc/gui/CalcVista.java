@@ -179,39 +179,19 @@ public class CalcVista extends JFrame {
 	}
 
 	public String getGender() {
-		try {
-			return boxGender.getSelectedItem().toString();
-		} catch (NumberFormatException e) {
-			JOptionPane.showMessageDialog(null, "Please select gender.", "Invalid Input", JOptionPane.ERROR_MESSAGE);
-			return boxGender.getSelectedItem().toString();
-		}
+		return boxGender.getSelectedItem().toString();
 	}
 
 	public int getAge() {
-		try {
-			return Integer.parseInt(textAge.getText());
-		} catch (NumberFormatException e) {
-			JOptionPane.showMessageDialog(null, "Please enter a valid age.", "Invalid Input", JOptionPane.ERROR_MESSAGE);
-			return -1;
-		}
+		return Integer.parseInt(textAge.getText());
 	}
 	
 	public float getWeight() {
-		try {
-			return Float.parseFloat(textWeight.getText());
-		} catch (NumberFormatException e) {
-			JOptionPane.showMessageDialog(null, "Please enter a valid weight.", "Invalid Input", JOptionPane.ERROR_MESSAGE);
-			return -1.0f;
-		}
+		return Float.parseFloat(textWeight.getText());
 	}
 	
 	public int getTextHeight() {
-		try {
-			return Integer.parseInt(textHeight.getText());
-		} catch (NumberFormatException e) {
-			JOptionPane.showMessageDialog(null, "Please enter a valid height.", "Invalid Input", JOptionPane.ERROR_MESSAGE);
-			return -1;
-		}
+		return Integer.parseInt(textHeight.getText());
 	}
 	
 	public String getBg() {

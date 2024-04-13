@@ -5,12 +5,9 @@ public class HealthCalcImpl implements HealthCalc {
     public float idealWeight(int height, char gender) throws Exception {
         float idealW;
 
-        if (height <= 0) {
-            throw new Exception("Invalid Height");
-        } if (gender != 'm' && gender != 'w') {
-            throw new Exception("Invalid Gender");
+        if (height <= 0 || (gender != 'm' && gender != 'w')) {
+            throw new Exception("Invalid parameters");
         }
-
         if (gender  == 'm') {
             idealW = height-100-((height-150)/4);
         } else {
@@ -23,16 +20,9 @@ public class HealthCalcImpl implements HealthCalc {
     public float basalMetabolicRate(float weight, int height, char gender, int age) throws Exception {
         float BMR;
 
-        if (weight <= 0) {
-            throw new Exception("Invalid Weight");
-        } if (height <= 0) {
-            throw new Exception("Invalid Height");
-        } if (age <= 0) {
-            throw new Exception("Invalid Age");
-        } if (gender != 'm' && gender != 'w') {
-            throw new Exception("Invalid Gender");
+        if (weight <= 0 || height <= 0 || age <= 0 || (gender != 'm' && gender != 'w')) {
+            throw new Exception("Invalid parameters");
         }
-
         if (gender == 'm') {
             BMR = (float)(10*weight+6.25*height-5*age+5);
         } else {
@@ -43,12 +33,19 @@ public class HealthCalcImpl implements HealthCalc {
     }
 
     public float bodyMassIndex(float weight, int height) throws Exception {
-        float BMI = weight/(height^2);
+        if (weight <= 0 || height <= 0) {
+            throw new Exception("Invalid parameters");
+        }
+        
+        float BMI = weight/((float)Math.pow(height/100.0, 2));
         return BMI; 
     }
 
     public String heartRateZones(int age) throws Exception {
-
+        if (age <= 0) {
+            throw new Exception("Invalid parameters");
+        }
+        
         int heartRate = 220 - age;
 
         // Moderate-intensity
