@@ -29,7 +29,7 @@ public class ResultVista extends JFrame {
 	 */
 	public ResultVista() {
 		setTitle("Results");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 412, 243);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.info);
