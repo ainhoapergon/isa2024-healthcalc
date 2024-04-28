@@ -10,6 +10,7 @@
 - [Practice 2](#practice-2)
 - [Practice 3](#practice-3)
 - [Practice 4](#practice-4)
+- [Practice 5](#practice-5)
 
 
 # Practice 1
@@ -249,4 +250,12 @@ Here is the final view when executing it:
 ![Graphical interface](./images/interfazGrafica.png "Graphical interface")
 
 
+# Practice 5
 
+In this practice we will be evaluating two graphical interfaces from our classmates. I will be evaluating calculator D and calculator F.
+Both reports will be available in folder "evaluation".
+
+Some points to consider in this evaluation are feedback, metaphor, navigation, consistency, prevention, memory, efficiency, design, recovery, help and more.
+
+- ["Calculator D report"](./evaluation/CalcD.pdf)
+- ["Calculator F report"](./evaluation/CalcF.pdf)
