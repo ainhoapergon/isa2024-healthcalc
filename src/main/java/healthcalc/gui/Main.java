@@ -9,7 +9,7 @@ public class Main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					HealthCalcImpl modelo = new HealthCalcImpl();
+					HealthCalcImpl modelo = HealthCalcImpl.getInstancia();
 					CalcVista vista = new CalcVista();
 					vista.setVisible(true);
 					ResultVista resultVista = new ResultVista();

@@ -1,6 +1,18 @@
 package healthcalc;
 
 public class HealthCalcImpl implements HealthCalc {
+
+    private static HealthCalcImpl instancia;
+
+    private HealthCalcImpl() {}   // Constructor privado para prevenir otras instancias
+
+    // Método para obtener la instancia
+    public static synchronized HealthCalcImpl getInstancia() {
+        if (instancia == null) {
+            instancia = new HealthCalcImpl();
+        }
+        return instancia;
+    }    
     
     public float idealWeight(int height, char gender) throws Exception {
         float idealW;
