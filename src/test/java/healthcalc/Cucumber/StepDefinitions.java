@@ -23,7 +23,8 @@ public class StepDefinitions {
 	
 	@Given("I have a health calculator")
     public void i_have_a_health_calculator() {
-        calculator = new HealthCalcImpl();
+        // calculator = new HealthCalcImpl();
+        HealthCalcImpl calculator = HealthCalcImpl.getInstancia();
     }
 	
 	@When("I compute the ideal weight with {int} and {string}")
