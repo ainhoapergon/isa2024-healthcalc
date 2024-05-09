@@ -2,6 +2,8 @@ package healthcalc.gui;
 
 import java.awt.EventQueue;
 import healthcalc.HealthCalcImpl;
+import healthcalc.HealthHospital;
+import healthcalc.HealthHospitalAdapter;
 
 public class Main {
 
@@ -9,13 +11,21 @@ public class Main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					// Comprobamos si el Singleton está implementado correctamente.
-					HealthCalcImpl modelo1 = HealthCalcImpl.getInstancia();
-                    HealthCalcImpl modelo2 = HealthCalcImpl.getInstancia();
+					// Comprobamos si el Adapter está implementado correctamente.
+					HealthCalcImpl modelo = HealthCalcImpl.getInstancia();
+					HealthHospital modeloHospital = new HealthHospitalAdapter(modelo);
 
-                    System.out.println("Referencia de modelo1: " + System.identityHashCode(modelo1));
-                    System.out.println("Referencia de modelo2: " + System.identityHashCode(modelo2));
-                    System.out.println("¿Es la misma instancia? " + (modelo1 == modelo2));
+					char genero = 'm';
+					int edad = 35;
+					float altura = 1.80f;
+					int peso = 70;
+
+					double bmr = modeloHospital.bmr(genero, edad, altura, peso);
+					int pesoIdeal = modeloHospital.pesoIdeal(genero, altura);
+
+					System.out.println("Para un genero " + genero + ", una edad de " + edad + ", una altura de " + altura + " y un peso de " + peso);
+					System.out.println("El BMR es " + bmr);
+					System.out.println("El peso ideal es: " + pesoIdeal);
 
 					// CalcVista vista = new CalcVista();
 					// vista.setVisible(true);
