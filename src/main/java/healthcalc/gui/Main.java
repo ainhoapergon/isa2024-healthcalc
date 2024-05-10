@@ -1,7 +1,11 @@
 package healthcalc.gui;
 
 import java.awt.EventQueue;
-import healthcalc.HealthCalcProxy;
+
+import healthcalc.AmericanCalcDecorator;
+import healthcalc.EuropeanCalcDecorator;
+import healthcalc.HealthCalc;
+import healthcalc.HealthCalcImpl;
 
 public class Main {
 
@@ -9,19 +13,20 @@ public class Main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					// Comprobamos si el Proxy esta implementado correctamente.
-					HealthCalcProxy modeloProxy = new HealthCalcProxy();
-					modeloProxy.bmr('m', 19, 1.83f, 80000);
-					modeloProxy.bmr('w', 23, 1.64f, 73000);
-					float bmrMedio = modeloProxy.bmrMedio();
-					float edadMedia = modeloProxy.edadMedia();
-					int num = modeloProxy.numSexoM();
+					// Comprobamos si el Decorator está implementado correctamente.
+					System.out.println("-----------------------------------");
+					System.out.println("Comprobación patrón Decorator:");
+					HealthCalcImpl basicCalc = HealthCalcImpl.getInstancia();
+					HealthCalc americanCalc = new AmericanCalcDecorator(basicCalc);
+					HealthCalc europeanCalc = new EuropeanCalcDecorator(basicCalc);
 
-					System.out.println("Para un género m, una edad de 19, una altura de 1.83 y un peso de 80000 gramos");
-					System.out.println("Y para un género w, una edad de 23, una altura de 1.64 y un peso de 73000 gramos");
-					System.out.println("El BMR medio es " + bmrMedio);
-					System.out.println("La edad media es " + edadMedia);
-					System.out.println("El número de mujeres es: " + num);
+					// Ejemplo: Hombre de 78 kg, 1.83m, 24 años  
+					System.out.println("-----------------------------------");
+					System.out.println("Calculadora Versión Americana:");			 
+					americanCalc.basalMetabolicRate(171.961f, 6.003937f, 'm', 24);	   // Recordatorio: peso en libras y altura en pies.
+					System.out.println("-----------------------------------");
+					System.out.println("Calculadora Versión Europea:");    			 
+					europeanCalc.basalMetabolicRate(78000f, 1.83f, 'm', 24);          // Recordatorio: peso en gramos y altura en metros.
 
 				} catch (Exception e) {
 					e.printStackTrace();
