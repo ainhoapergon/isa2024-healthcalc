@@ -14,7 +14,7 @@ public class HealthCalcImpl implements HealthCalc {
         return instancia;
     }    
     
-    public float idealWeight(int height, char gender) throws Exception {
+    public float idealWeight(float height, char gender) throws Exception {
         float idealW;
 
         if (height <= 0 || (gender != 'm' && gender != 'w')) {
@@ -29,7 +29,7 @@ public class HealthCalcImpl implements HealthCalc {
         return idealW;
     }
 
-    public float basalMetabolicRate(float weight, int height, char gender, int age) throws Exception {
+    public float basalMetabolicRate(float weight, float height, char gender, int age) throws Exception {
         float BMR;
 
         if (weight <= 0 || height <= 0 || age <= 0 || (gender != 'm' && gender != 'w')) {
@@ -44,7 +44,7 @@ public class HealthCalcImpl implements HealthCalc {
         return BMR;
     }
 
-    public float bodyMassIndex(float weight, int height) throws Exception {
+    public float bodyMassIndex(float weight, float height) throws Exception {
         if (weight <= 0 || height <= 0) {
             throw new Exception("Invalid parameters");
         }
