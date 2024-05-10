@@ -11,6 +11,7 @@
 - [Practice 3](#practice-3)
 - [Practice 4](#practice-4)
 - [Practice 5](#practice-5)
+- [Practice 6](#practice-6)
 
 
 # Practice 1
@@ -259,3 +260,47 @@ Some points to consider in this evaluation are feedback, metaphor, navigation, c
 
 - ["Calculator D report"](./evaluation/CalcD.pdf)
 - ["Calculator F report"](./evaluation/CalcF.pdf)
+
+
+# Practice 6
+
+In this practice we will be seeing various **design patterns** for our calculator.
+
+## Singleton pattern
+
+First of all we will be applying the singleton pattern to our calculator to guarantee we only create one instance of our calculator. In order to do that, we will be modifying our version of ["HealthCalcImpl"](./src/main/java/healthcalc/HealthCalcImpl.java) as shown in the following class diagram:
+
+![Singleton pattern](./design_patterns/Singleton.png "Singleton pattern")
+
+## Adapter pattern
+
+The Costa del Sol hospital is now interested in our health calculator project, but they want to use a different interface called ["HealthHospital"](./src/main/java/healthcalc/HealthHospital.java). This interface calculates as well the basal metabolic rate and the ideal weight but using height in meters (instead of centimeters) and weight in grams (instead of kilograms). As it is incompatible with our first implementation, I will be using the adapter design pattern to avoid this problem and re-use our calculator and its methods. All changes are shown in the following class diagram:
+
+![Adapter pattern](./design_patterns/Adapter.png "Adapter pattern")
+
+## Registry proxy pattern
+
+We have also been asked to keep a record of the number of times the calculator is used in the computer system, storing the patients data anonymously to calculate the average of the values entered and calculated. For this situation we have another interface called ["HealthStats"](./src/main/java/healthcalc/HealthStats.java). In this case we will be applying the registry proxy pattern which will store all the parameters. All the changes are shown in the following class diagram:
+
+![Registry proxy pattern](./design_patterns/Proxy.png "Registry proxy pattern")
+
+## Decorator pattern
+
+Lastly, but not last, the Costa del Sol hospital asked us as well to create two different versions of our calculator: an *american version* and an *european version*.
+
+- The American version will calculate the Basal Metabolic Rate and Ideal Weight using the patient's height in **feet** and the patient's weight in **pounds**. 
+- The European version will calculate the Basal Metabolic Rate and Ideal Weight using the patient's height in **meters** and the patient's weight in **grams**.
+
+Also, the system must show a message of the parameters introduced and the final calculation. This message will be shown in both languages: spanish and english (regardless the version type selected).
+
+As our implementation HealthCalcImpl uses height in centimeters and weight in kilograms, I will be applying a decorator pattern. In order to do that we will have another class called ["HealthCalcDecorator"](./src/main/java/healthcalc/HealthCalcDecorator.java), which will be the "Base Decorator". Then, two more classes that extends the previous one called ["AmericanCalcDecorator"](./src/main/java/healthcalc/AmericanCalcDecorator.java) and ["EuropeanCalcDecorator"](./src/main/java/healthcalc/EuropeanCalcDecorator.java). Each one will handle the calculations needed.
+
+All changes applied are shown in the following class diagram:
+
+![Decorator pattern](./design_patterns/Decorator.png "Decorator pattern")
+
+
+
+
+
+
