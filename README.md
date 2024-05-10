@@ -272,17 +272,23 @@ First of all we will be applying the singleton pattern to our calculator to guar
 
 ![Singleton pattern](./design_patterns/Singleton.png "Singleton pattern")
 
+The main changes are the private constructor and the new method to get the class instance. 
+
 ## Adapter pattern
 
-The Costa del Sol hospital is now interested in our health calculator project, but they want to use a different interface called ["HealthHospital"](./src/main/java/healthcalc/HealthHospital.java). This interface calculates as well the basal metabolic rate and the ideal weight but using height in meters (instead of centimeters) and weight in grams (instead of kilograms). As it is incompatible with our first implementation, I will be using the adapter design pattern to avoid this problem and re-use our calculator and its methods. All changes are shown in the following class diagram:
+The Costa del Sol hospital is now interested in our health calculator project, but they want to use a different interface called *HealthHospital*. This interface calculates as well the Basal Netabolic Rate and the Ideal Weight but using height in meters (instead of centimeters) and weight in grams (instead of kilograms). As it is incompatible with our first implementation, I will be using the adapter design pattern to avoid this problem and re-use our calculator and its methods. The Adapter design pattern allows objects with incompatible interfaces to interact by acting as a bridge between them. It's used to integrate classes that couldn't otherwise work together due to mismatched interfaces. All changes are shown in the following class diagram:
 
 ![Adapter pattern](./design_patterns/Adapter.png "Adapter pattern")
 
+We used the ["HealthHospital"](./src/main/java/healthcalc/HealthHospital.java) interface and we created the ["HealthHospitalAdapter"](./src/main/java/healthcalc/HealthHospitalAdapter.java). class, which will "bridge" both interfaces.
+
 ## Registry proxy pattern
 
-We have also been asked to keep a record of the number of times the calculator is used in the computer system, storing the patients data anonymously to calculate the average of the values entered and calculated. For this situation we have another interface called ["HealthStats"](./src/main/java/healthcalc/HealthStats.java). In this case we will be applying the registry proxy pattern which will store all the parameters. All the changes are shown in the following class diagram:
+We have also been asked to keep a record of the number of times the calculator is used in the computer system, storing the patients data anonymously to calculate the average of the values entered and calculated. For this situation we have been given another interface called *HealthStats*. In this case we will be applying the registry proxy pattern which will store all the parameters and calculate all averages. All the changes are shown in the following class diagram:
 
 ![Registry proxy pattern](./design_patterns/Proxy.png "Registry proxy pattern")
+
+We used the ["HealthStats"](./src/main/java/healthcalc/HealthStats.java) interface and the new class called ["HealthCalcProxy"](./src/main/java/healthcalc/HealthCalcProxy.java) which will store all data and manage the average calculations.
 
 ## Decorator pattern
 
@@ -293,11 +299,17 @@ Lastly, but not last, the Costa del Sol hospital asked us as well to create two 
 
 Also, the system must show a message of the parameters introduced and the final calculation. This message will be shown in both languages: spanish and english (regardless the version type selected).
 
-As our implementation HealthCalcImpl uses height in centimeters and weight in kilograms, I will be applying a decorator pattern. In order to do that we will have another class called ["HealthCalcDecorator"](./src/main/java/healthcalc/HealthCalcDecorator.java), which will be the "Base Decorator". Then, two more classes that extends the previous one called ["AmericanCalcDecorator"](./src/main/java/healthcalc/AmericanCalcDecorator.java) and ["EuropeanCalcDecorator"](./src/main/java/healthcalc/EuropeanCalcDecorator.java). Each one will handle the calculations needed.
+As our implementation HealthCalcImpl uses height in centimeters and weight in kilograms, I will be applying a decorator pattern. In order to do that we will have another abstract class called ["HealthCalcDecorator"](./src/main/java/healthcalc/HealthCalcDecorator.java), which will be the "Base Decorator". Then, two more classes that extends the previous one called ["AmericanCalcDecorator"](./src/main/java/healthcalc/AmericanCalcDecorator.java) and ["EuropeanCalcDecorator"](./src/main/java/healthcalc/EuropeanCalcDecorator.java). Each one will handle the calculations needed in their own metrics.
 
 All changes applied are shown in the following class diagram:
 
 ![Decorator pattern](./design_patterns/Decorator.png "Decorator pattern")
+
+## Implementation Verification
+
+I have created some instances and simulated data to verify every pattern implementation in the ["Main"](./src/main/java/healthcalc/gui/Main.java) method. Here are the obtained results: 
+
+![Implementation verification](./images/patterns.png "Implementation verification")
 
 
 
