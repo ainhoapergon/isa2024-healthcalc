@@ -25,7 +25,7 @@ public class HealthHospitalAdapter implements HealthHospital {
         int alturaEnCm = (int)(altura*100);
         
         try {
-            return (int)calculadora.idealWeight(alturaEnCm, genero);
+            return (int)calculadora.idealWeight(alturaEnCm, genero)*1000;   // Devuelve el peso ideal en gramos
         } catch(Exception e) {
             throw new Exception("No se ha podido calcular el peso ideal.");
         }

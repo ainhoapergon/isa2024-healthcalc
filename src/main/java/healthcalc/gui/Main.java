@@ -53,7 +53,7 @@ public class Main {
 					System.out.println("Comprobación patrón Adapter:");
 					System.out.println("Para un género " + genero + ", una edad de " + edad + ", una altura de " + altura + " m y un peso de " + peso + " gramos");
 					System.out.println("El BMR es " + bmr);
-					System.out.println("El peso ideal es: " + pesoIdeal + " kg");
+					System.out.println("El peso ideal es: " + pesoIdeal + " g");
 
 					// Comprobamos si el Proxy está implementado correctamente.
 					HealthCalcProxy modeloProxy = new HealthCalcProxy();
