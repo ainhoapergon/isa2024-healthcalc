@@ -82,7 +82,7 @@ public class Controlador implements ActionListener {
 								genderString = vista.getGender();
 								gender = Gender.valueOf(genderString.toUpperCase());
 								height = vista.getTextHeight();
-								return modelo.idealWeight(new PersonImpl(height, gender));
+								return modelo.getIdealBodyWeight(new PersonImpl(height, gender));
 							case "Basal Metabolic Rate":
 								genderString = vista.getGender();
 								gender = Gender.valueOf(genderString.toUpperCase());
