@@ -8,6 +8,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import healthcalc.Gender;
 import healthcalc.HealthCalcImpl;
+import healthcalc.PersonImpl;
 
 public class StepDefinitions {
 	
@@ -31,7 +32,7 @@ public class StepDefinitions {
 	@When("I compute the ideal weight with {int} and {string}")
     public void i_compute_the_ideal_weight(int height, String gender) throws Exception {
         Gender newGender = Gender.valueOf(gender.toUpperCase());
-		result = calculator.idealWeight(height, newGender);
+		result = calculator.getIdealBodyWeight(new PersonImpl(height, newGender));
     }
 
 	@Then("The system returns {float}")
@@ -43,7 +44,7 @@ public class StepDefinitions {
     public void i_compute_the_ideal_weight_with_invalid_gender(int height, String gender) throws Exception {
         try {
             Gender newGender = Gender.valueOf(gender.toUpperCase());
-            result = calculator.idealWeight(height, newGender);
+            result = calculator.getIdealBodyWeight(new PersonImpl(height, newGender));
         } catch (Exception e) {
             raiseException = true;
         }   
@@ -53,7 +54,7 @@ public class StepDefinitions {
     public void i_compute_the_ideal_weight_with_invalid_height(int height, String gender) throws Exception {
         try {
             Gender newGender = Gender.valueOf(gender.toUpperCase());
-            result = calculator.idealWeight(height, newGender);
+            result = calculator.getIdealBodyWeight(new PersonImpl(height, newGender));
         } catch (Exception e) {
             raiseException = true;
         }   
@@ -62,14 +63,14 @@ public class StepDefinitions {
     @When("I compute the BMR using {float}, {int}, {string} and {int}")
     public void i_compute_the_BMR(float weight, int height, String gender, int age) throws Exception {
         Gender newGender = Gender.valueOf(gender.toUpperCase());
-        result = calculator.basalMetabolicRate(weight, height, newGender, age); 
+        result = calculator.basalMetabolicRate(new PersonImpl(weight, height, newGender, age)); 
     }
 
     @When("I compute the BMR using valid {float}, {int}, {string} but invalid age {int}")
     public void i_compute_the_BMR_with_invalid_age(float weight, int height, String gender, int age) throws Exception {
         try {
             Gender newGender = Gender.valueOf(gender.toUpperCase());
-            result = calculator.basalMetabolicRate(weight, height, newGender, age);
+            result = calculator.basalMetabolicRate(new PersonImpl(weight, height, newGender, age));
         } catch (Exception e) {
             raiseException = true;
         }       
@@ -79,7 +80,7 @@ public class StepDefinitions {
     public void i_compute_the_BMR_with_invalid_gender(float weight, int height, String gender, int age) throws Exception {
         try {
             Gender newGender = Gender.valueOf(gender.toUpperCase());
-            result = calculator.basalMetabolicRate(weight, height, newGender, age);
+            result = calculator.basalMetabolicRate(new PersonImpl(weight, height, newGender, age));
         } catch (Exception e) {
             raiseException = true;
         }       
@@ -89,7 +90,7 @@ public class StepDefinitions {
     public void i_compute_the_BMR_with_invalid_height(float weight, int height, String gender, int age) throws Exception {
         try {
             Gender newGender = Gender.valueOf(gender.toUpperCase());
-            result = calculator.basalMetabolicRate(weight, height, newGender, age);
+            result = calculator.basalMetabolicRate(new PersonImpl(weight, height, newGender, age));
         } catch (Exception e) {
             raiseException = true;
         }       
@@ -99,7 +100,7 @@ public class StepDefinitions {
     public void i_compute_the_BMR_with_invalid_weight(float weight, int height, String gender, int age) throws Exception {
         try {
             Gender newGender = Gender.valueOf(gender.toUpperCase());
-            result = calculator.basalMetabolicRate(weight, height, newGender, age);
+            result = calculator.basalMetabolicRate(new PersonImpl(weight, height, newGender, age));
         } catch (Exception e) {
             raiseException = true;
         }       

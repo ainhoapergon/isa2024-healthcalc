@@ -24,7 +24,7 @@ public class HealthCalcTest {
 		float heightMen = 180;
 		Gender genderMen = Gender.MALE;
 		float expectedMen = (heightMen-100-((heightMen-150)/4));
-		assertEquals(expectedMen, calculator.idealWeight(new PersonImpl(heightMen, genderMen)));
+		assertEquals(expectedMen, calculator.getIdealBodyWeight(new PersonImpl(heightMen, genderMen)));
 	}
 	
 	@Test
@@ -33,7 +33,7 @@ public class HealthCalcTest {
 		int heightWomen = 165;
 		Gender genderWomen = Gender.FEMALE;
 		float expectedMen = (float)(heightWomen-100-((heightWomen-150)/2.5));
-		assertEquals(expectedMen, calculator.idealWeight(new PersonImpl(heightWomen, genderWomen)));
+		assertEquals(expectedMen, calculator.getIdealBodyWeight(new PersonImpl(heightWomen, genderWomen)));
 	}
 
 	@Test
@@ -41,8 +41,8 @@ public class HealthCalcTest {
 	public void testIdealWeightInvalidHeight() throws Exception {
 		int invalidHeight = -10;
 		Gender gender = Gender.FEMALE;
-		assertThrows(Exception.class, () -> calculator.idealWeight(new PersonImpl(invalidHeight, gender)));
-		assertEquals("Invalid parameters", (assertThrows(Exception.class, () -> calculator.idealWeight(new PersonImpl(invalidHeight, gender)))).getMessage());
+		assertThrows(Exception.class, () -> calculator.getIdealBodyWeight(new PersonImpl(invalidHeight, gender)));
+		assertEquals("Invalid parameters", (assertThrows(Exception.class, () -> calculator.getIdealBodyWeight(new PersonImpl(invalidHeight, gender)))).getMessage());
 	}
 	
 	// Este test ya no tiene sentido porque tratamos con un ENUM ahora de solo dos opciones, no puede haber una inválida.
