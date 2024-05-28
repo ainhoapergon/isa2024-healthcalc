@@ -322,52 +322,53 @@ In this practice we will be seeing some refactorings methods to improve our calc
     - Refactoring applied: Modifying the data type for a variable.
     - Type: Attribute refactoring.
     - Changes description:
-        > A new enum called ["Gender"](./src/main/java/healthcalc/Gender.java) was created.
-        > Every 'm' char was changed to Gender.MALE and every 'w' char to Gender.FEMALE
-        > All tests and the rest of the classes were adapted to use the new type.
+        - A new enum called ["Gender"](./src/main/java/healthcalc/Gender.java) was created.
+        - Every 'm' char was changed to Gender.MALE and every 'w' char to Gender.FEMALE
+        - All tests and the rest of the classes were adapted to use the new type.
     - Manual changes:
-        > Create the "Gender" enum.
-        > Change char to Gender in HealthCalc, HealthCalcImpl, HealthHospitalAdapter, and HealthCalcDecorator (including both the European and American versions).
-        > Change char to Gender in the GUI (controller and main).
-        > Add a new method in HealthHospitalAdapter to convert char gender into enum gender.
+        - Create the "Gender" enum.
+        - Change char to Gender in HealthCalc, HealthCalcImpl, HealthHospitalAdapter, and HealthCalcDecorator (including both the European and American versions).
+        - Change char to Gender in the GUI (controller and main).
+        - Add a new method in HealthHospitalAdapter to convert char gender into enum gender.
 
 2. Person Interface
     - Name: Long parameter list
     - Refactoring applied: Removing parameters by creating an object.
     - Type: Class refactoring.
     - Changes description:
-        > A new interface called ["Person"](./src/main/java/healthcalc/Person.java) was created.
-        > A new class called ["PersonImpl"](./src/main/java/healthcalc/PersonImpl.java) was created with methods that return the person's parameters.
-        > All tests and the rest of the classes were adapted to use the new object.
+        - A new interface called ["Person"](./src/main/java/healthcalc/Person.java) was created.
+        - A new class called ["PersonImpl"](./src/main/java/healthcalc/PersonImpl.java) was created with methods that return the person's parameters.
+        - All tests and the rest of the classes were adapted to use the new object.
     - Manual changes:
-        > Create the "Person" interface.
-        > Create the "PersonImpl" class.
-        > Replace every individual parameter with a new PersonImpl object in HealthCalc, HealthCalcImpl, HealthHospitalAdapter, and HealthCalcDecorator (both European and American versions).
-        > Replace every individual parameter with a new object in the GUI (controller and main).
-        > Replace every individual parameter with a new object in tests.
+        - Create the "Person" interface.
+        - Create the "PersonImpl" class.
+        - Replace every individual parameter with a new PersonImpl object in HealthCalc, HealthCalcImpl, HealthHospitalAdapter, and HealthCalcDecorator (both European and American versions).
+        - Replace every individual parameter with a new object in the GUI (controller and main).
+        - Replace every individual parameter with a new object in tests.
 
 3. CardiovascularMetrics Interface
     - Name: Large interface
     - Refactoring applied: Interface Segregation
     - Type: Class refactoring.
     - Changes description:
-        > A new interface called ["CardiovascularMetrics"](./src/main/java/healthcalc/CardiovascularMetrics.java) was created.
-        > All tests and the rest of the classes were adapted to use the new interface.
+        - A new interface called ["CardiovascularMetrics"](./src/main/java/healthcalc/CardiovascularMetrics.java) was created.
+        - All tests and the rest of the classes were adapted to use the new interface.
     - Manual changes:
-        > Create the "CardiovascularMetrics" interface.
-        > Change the implementation in HealthCalcImpl to use CardiovascularMetrics instead of HealthCalc.
-        > Rename the initial idealWeight() method to getIdealBodyWeight().
+        - Create the "CardiovascularMetrics" interface.
+        - Change the implementation in HealthCalcImpl to use CardiovascularMetrics instead of HealthCalc.
+        - Rename the initial idealWeight() method to getIdealBodyWeight().
 
 4. MetabolicMetrics Interface
     - Name: Large interface
     - Refactoring applied: Interface Segregation
     - Type: Class refactoring.
     - Changes description:
-        > A new interface called "MetabolicMetrics" ["MetabolicMetrics"](./src/main/java/healthcalc/MetabolicMetrics.java) was created.
-        > All tests and the rest of the classes were adapted to use the new interface.
+        - A new interface called "MetabolicMetrics" ["MetabolicMetrics"](./src/main/java/healthcalc/MetabolicMetrics.java) was created.
+        - All tests and the rest of the classes were adapted to use the new interface.
     - Manual changes:
-        > Create the "MetabolicMetrics" interface.
-        > Change the implementation in HealthCalcImpl to use MetabolicMetrics instead of HealthCalc.
+        - Create the "MetabolicMetrics" interface.
+        - Change the implementation in HealthCalcImpl to use MetabolicMetrics instead of HealthCalc.
 
+After applying all these refactorings methods I have run all the tests again to check they keep working:
 
-
+![Tests image](./images/tests2.png "Tests")
