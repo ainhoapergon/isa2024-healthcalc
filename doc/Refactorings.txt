@@ -1,0 +1,17 @@
+
+Refactorings
+
+1. Enum Gender
+    - Name: Wrong type of variable for Gender.
+    - Refactoring applied: Modifying the data type for a variable.
+    - Type: Attribute refactoring.
+    - Changes description:
+        > New enum created called "Gender".
+        > Change every 'm' char for Gender.MALE and every 'w' char for Gender.FEMALE
+        > Adapt the tests.
+        > Adapt the rest of the classes.
+    - Manual changes:
+        > New enum created called "Gender".
+        > Change "char" for "Gender" in HealthCalc, HealthCalcImpl, HealthHospitalAdapter, HealthCalcDecorator (including European version and American version).
+        > Change "char" for "Gender" in GUI (controller and main)
+        > New method in HealthHospitalAdapter to change char gender into enum gender.

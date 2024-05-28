@@ -9,7 +9,7 @@ public abstract class HealthCalcDecorator implements HealthCalc {
         this.calculadora = calculadora;
     }
 
-    protected void formatoIdealWeight(float idealWeight, char gender, float height) {
+    protected void formatoIdealWeight(float idealWeight, Gender gender, float height) {
         if ("EU".equals(version)) {
             System.out.println(String.format("La persona con altura %.2f metros tiene un peso ideal de %.2f. gramos.", height, idealWeight));
             System.out.println(String.format("The person with a height of %.2f meters has an ideal weight of %.2f. grames.", height, idealWeight));
@@ -34,6 +34,6 @@ public abstract class HealthCalcDecorator implements HealthCalc {
     }
 
     // Métodos abstractos 
-    public abstract float idealWeight(float height, char gender) throws Exception;
-    public abstract float basalMetabolicRate(float weight, float height, char gender, int age) throws Exception;
+    public abstract float idealWeight(float height, Gender gender) throws Exception;
+    public abstract float basalMetabolicRate(float weight, float height, Gender gender, int age) throws Exception;
 }   

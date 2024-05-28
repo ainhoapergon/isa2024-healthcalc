@@ -8,7 +8,7 @@ public class AmericanCalcDecorator extends HealthCalcDecorator {
     }
 
     @Override
-    public float idealWeight(float height, char gender) throws Exception {
+    public float idealWeight(float height, Gender gender) throws Exception {
         try {
             // Convertimos a parámetros compatibles con HealthCalc
             float heightInCM = (height * 30.48f);      // Convertir pies a cm
@@ -22,7 +22,7 @@ public class AmericanCalcDecorator extends HealthCalcDecorator {
     }
 
     @Override
-    public float basalMetabolicRate(float weight, float height, char gender, int age) throws Exception {
+    public float basalMetabolicRate(float weight, float height, Gender gender, int age) throws Exception {
         try {
             // Convertimos a parámetros compatibles con HealthCalc
             float weightInKilograms = (weight / 2.20462f);      // Convertir libras a kilogramos

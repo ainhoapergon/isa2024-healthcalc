@@ -14,14 +14,14 @@ public class HealthCalcImpl implements HealthCalc {
         return instancia;
     }    
     
-    public float idealWeight(float height, char gender) throws Exception {
+    public float idealWeight(float height, Gender gender) throws Exception {
         float idealW;
 
-        if (height <= 0 || (gender != 'm' && gender != 'w')) {
+        if (height <= 0 || (gender != Gender.MALE && gender != Gender.FEMALE)) {
             throw new Exception("Invalid parameters");
         }
-        if (gender  == 'm') {
-            idealW = height-100-((height-150)/4);
+        if (gender == Gender.MALE) {
+            idealW = (height-100-((height-150)/4));
         } else {
             idealW = (float)(height-100-((height-150)/2.5));
         }
@@ -29,13 +29,13 @@ public class HealthCalcImpl implements HealthCalc {
         return idealW;
     }
 
-    public float basalMetabolicRate(float weight, float height, char gender, int age) throws Exception {
+    public float basalMetabolicRate(float weight, float height, Gender gender, int age) throws Exception {
         float BMR;
 
-        if (weight <= 0 || height <= 0 || age <= 0 || (gender != 'm' && gender != 'w')) {
+        if (weight <= 0 || height <= 0 || age <= 0 || (gender != Gender.MALE && gender != Gender.FEMALE)) {
             throw new Exception("Invalid parameters");
         }
-        if (gender == 'm') {
+        if (gender == Gender.MALE) {
             BMR = (float)(10*weight+6.25*height-5*age+5);
         } else {
             BMR = (float)(10*weight+6.25*height-5*age-161);

@@ -6,6 +6,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import healthcalc.Gender;
 import healthcalc.HealthCalcImpl;
 
 public class StepDefinitions {
@@ -29,7 +30,8 @@ public class StepDefinitions {
 	
 	@When("I compute the ideal weight with {int} and {string}")
     public void i_compute_the_ideal_weight(int height, String gender) throws Exception {
-		result = calculator.idealWeight(height, gender.charAt(0));
+        Gender newGender = Gender.valueOf(gender.toUpperCase());
+		result = calculator.idealWeight(height, newGender);
     }
 
 	@Then("The system returns {float}")
@@ -40,7 +42,8 @@ public class StepDefinitions {
 	@When("I compute the ideal weight with a valid height {int} but invalid gender {string}")
     public void i_compute_the_ideal_weight_with_invalid_gender(int height, String gender) throws Exception {
         try {
-            result = calculator.idealWeight(height, gender.charAt(0));
+            Gender newGender = Gender.valueOf(gender.toUpperCase());
+            result = calculator.idealWeight(height, newGender);
         } catch (Exception e) {
             raiseException = true;
         }   
@@ -49,7 +52,8 @@ public class StepDefinitions {
 	@When("I compute the ideal weight with an invalid height {int} but valid gender {string}")
     public void i_compute_the_ideal_weight_with_invalid_height(int height, String gender) throws Exception {
         try {
-            result = calculator.idealWeight(height, gender.charAt(0));
+            Gender newGender = Gender.valueOf(gender.toUpperCase());
+            result = calculator.idealWeight(height, newGender);
         } catch (Exception e) {
             raiseException = true;
         }   
@@ -57,13 +61,15 @@ public class StepDefinitions {
 
     @When("I compute the BMR using {float}, {int}, {string} and {int}")
     public void i_compute_the_BMR(float weight, int height, String gender, int age) throws Exception {
-        result = calculator.basalMetabolicRate(weight, height, gender.charAt(0), age); 
+        Gender newGender = Gender.valueOf(gender.toUpperCase());
+        result = calculator.basalMetabolicRate(weight, height, newGender, age); 
     }
 
     @When("I compute the BMR using valid {float}, {int}, {string} but invalid age {int}")
     public void i_compute_the_BMR_with_invalid_age(float weight, int height, String gender, int age) throws Exception {
         try {
-            result = calculator.basalMetabolicRate(weight, height, gender.charAt(0), age);
+            Gender newGender = Gender.valueOf(gender.toUpperCase());
+            result = calculator.basalMetabolicRate(weight, height, newGender, age);
         } catch (Exception e) {
             raiseException = true;
         }       
@@ -72,7 +78,8 @@ public class StepDefinitions {
     @When("I compute the BMR using valid {float}, {int}, invalid {string} and valid {int}")
     public void i_compute_the_BMR_with_invalid_gender(float weight, int height, String gender, int age) throws Exception {
         try {
-            result = calculator.basalMetabolicRate(weight, height, gender.charAt(0), age);
+            Gender newGender = Gender.valueOf(gender.toUpperCase());
+            result = calculator.basalMetabolicRate(weight, height, newGender, age);
         } catch (Exception e) {
             raiseException = true;
         }       
@@ -81,7 +88,8 @@ public class StepDefinitions {
     @When("I compute the BMR using valid {float}, invalid {int}, and valid {string}, {int}")
     public void i_compute_the_BMR_with_invalid_height(float weight, int height, String gender, int age) throws Exception {
         try {
-            result = calculator.basalMetabolicRate(weight, height, gender.charAt(0), age);
+            Gender newGender = Gender.valueOf(gender.toUpperCase());
+            result = calculator.basalMetabolicRate(weight, height, newGender, age);
         } catch (Exception e) {
             raiseException = true;
         }       
@@ -90,7 +98,8 @@ public class StepDefinitions {
     @When("I compute the BMR using invalid {float} and valid {int}, {string}, {int}")
     public void i_compute_the_BMR_with_invalid_weight(float weight, int height, String gender, int age) throws Exception {
         try {
-            result = calculator.basalMetabolicRate(weight, height, gender.charAt(0), age);
+            Gender newGender = Gender.valueOf(gender.toUpperCase());
+            result = calculator.basalMetabolicRate(weight, height, newGender, age);
         } catch (Exception e) {
             raiseException = true;
         }       
