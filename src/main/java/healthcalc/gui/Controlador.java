@@ -71,7 +71,7 @@ public class Controlador implements ActionListener {
 				protected Object doInBackground() {
 					try {
 						String genderString;
-						char gender;
+						Gender gender;
 						int age;
 						float weight;
 						int height;
@@ -80,15 +80,15 @@ public class Controlador implements ActionListener {
 						switch (calculationType) {
 							case "Ideal Weight":
 								genderString = vista.getGender();
-								gender = (genderString.equals("Masculine")) ? 'm' : 'w';
+								gender = Gender.valueOf(genderString.toUpperCase());
 								height = vista.getTextHeight();
 								return modelo.idealWeight(height, gender);
 							case "Basal Metabolic Rate":
 								genderString = vista.getGender();
-								gender = (genderString.equals("Masculine")) ? 'm' : 'w';
-								height = vista.getTextHeight();
+								gender = Gender.valueOf(genderString.toUpperCase());
 								age = vista.getAge();
 								weight = vista.getWeight();
+								height = vista.getHeight();
 								return modelo.basalMetabolicRate(weight, height, gender, age);
 							case "Body Mass Index":
 								height = vista.getTextHeight();
