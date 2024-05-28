@@ -6,49 +6,49 @@ Refactorings
     - Refactoring applied: Modifying the data type for a variable.
     - Type: Attribute refactoring.
     - Changes description:
-        > New enum created called "Gender".
-        > Change every 'm' char for Gender.MALE and every 'w' char for Gender.FEMALE
-        > Adapt all the tests and the rest of the classes.
+        > A new enum called "Gender" was created.
+        > Every 'm' char was changed to Gender.MALE and every 'w' char to Gender.FEMALE
+        > All tests and the rest of the classes were adapted to use the new type.
     - Manual changes:
-        > Create enum "Gender".
-        > Change "char" for "Gender" in HealthCalc, HealthCalcImpl, HealthHospitalAdapter, HealthCalcDecorator (including European version and American version).
-        > Change "char" for "Gender" in GUI (controller and main)
-        > New method in HealthHospitalAdapter to change char gender into enum gender.
-
+        > Create the "Gender" enum.
+        > Change char to Gender in HealthCalc, HealthCalcImpl, HealthHospitalAdapter, and HealthCalcDecorator (including both the European and American versions).
+        > Change char to Gender in the GUI (controller and main).
+        > Add a new method in HealthHospitalAdapter to convert char gender into enum gender.
 
 2. Person Interface
     - Name: Long parameter list
     - Refactoring applied: Removing parameters by creating an object.
     - Type: Class refactoring.
     - Changes description:
-        > New interface created called "Person".
-        > New class created called "PersonImpl" with methods that return the person's parameters.
-        > Adapt all the tests and the rest of the classes.
+        > A new interface called "Person" was created.
+        > A new class called "PersonImpl" was created with methods that return the person's parameters.
+        > All tests and the rest of the classes were adapted to use the new object.
     - Manual changes:
-        > Create interface "Person".
-        > Create class "PersonImpl".
-        > Change every parameter by a new object PersonImpl in HealthCalc, HealthCalcImpl, HealthHospitalAdapter, HealthCalcDecorator (both European and American version).
-        > Change every parameter by a new object in GUI (controller and main).
+        > Create the "Person" interface.
+        > Create the "PersonImpl" class.
+        > Replace every individual parameter with a new PersonImpl object in HealthCalc, HealthCalcImpl, HealthHospitalAdapter, and HealthCalcDecorator (both European and American versions).
+        > Replace every individual parameter with a new object in the GUI (controller and main).
+        > Replace every individual parameter with a new object in tests.
 
 3. CardiovascularMetrics Interface
     - Name: Large interface
     - Refactoring applied: Interface Segregation
     - Type: Class refactoring.
     - Changes description:
-        > New interface created called "CardiovascularMetrics".
-        > Adapt all the tests and the rest of the classes.
+        > A new interface called "CardiovascularMetrics" was created.
+        > All tests and the rest of the classes were adapted to use the new interface.
     - Manual changes:
-        > Create interface "CardiovascularMetrics".
-        > Change the implementation in HealthCalcImpl using CardiovascularMetrics instead of HealthCalc.
-        > Change the initial "idealWeight()" name into "getIdealBodyWeight()".
+        > Create the "CardiovascularMetrics" interface.
+        > Change the implementation in HealthCalcImpl to use CardiovascularMetrics instead of HealthCalc.
+        > Rename the initial idealWeight() method to getIdealBodyWeight().
 
 4. MetabolicMetrics Interface
     - Name: Large interface
     - Refactoring applied: Interface Segregation
     - Type: Class refactoring.
     - Changes description:
-        > New interface created called "MetabolicMetrics".
-        > Adapt all the tests and the rest of the classes.
+        > A new interface called "MetabolicMetrics" was created.
+        > All tests and the rest of the classes were adapted to use the new interface.
     - Manual changes:
-        > Create interface "MetabolicMetrics".
-        > Change the implementation in HealthCalcImpl using MetabolicMetrics instead of HealthCalc.
+        > Create the "MetabolicMetrics" interface.
+        > Change the implementation in HealthCalcImpl to use MetabolicMetrics instead of HealthCalc.
