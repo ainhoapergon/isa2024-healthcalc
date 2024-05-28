@@ -2,7 +2,7 @@ package healthcalc;
 
 public class EuropeanCalcDecorator extends HealthCalcDecorator {
 
-    public EuropeanCalcDecorator(HealthCalc calculadora) {
+    public EuropeanCalcDecorator(HealthCalcImpl calculadora) {
         super(calculadora, "EU");
     }
 
@@ -14,9 +14,9 @@ public class EuropeanCalcDecorator extends HealthCalcDecorator {
         try {
             // Convertimos a parámetros compatibles con HealthCalc
             float heightInCM = (height*100);         // Convertir m a cm
-            float idealWeight = calculadora.idealWeight(new PersonImpl(heightInCM, gender));
-            formatoIdealWeight(idealWeight, gender, height);
-            return idealWeight;
+            double idealWeight = calculadora.getIdealBodyWeight(new PersonImpl(heightInCM, gender));
+            formatoIdealWeight((float)idealWeight, gender, height);
+            return (float)idealWeight;
         } catch (Exception e) {
             throw new Exception("No se ha podido calcular el peso ideal en la calculadora Europea.", e);
         }
@@ -33,9 +33,9 @@ public class EuropeanCalcDecorator extends HealthCalcDecorator {
             // Convertimos a parámetros compatibles con HealthCalc
             float weightInKilograms = (weight/1000);     // Convertir gramos a kilogramos
             float heightInCM = (height*100);             // Convertir m a cm
-            float bmr = calculadora.basalMetabolicRate(new PersonImpl(weightInKilograms, heightInCM, gender, age));
+            double bmr = calculadora.basalMetabolicRate(new PersonImpl(weightInKilograms, heightInCM, gender, age));
             formatoBMR(bmr, weight, height);
-            return bmr;
+            return (float)bmr;
         } catch (Exception e) {
             throw new Exception("No se ha podido calcular el BMR en la calculadora Europea.", e);
         }

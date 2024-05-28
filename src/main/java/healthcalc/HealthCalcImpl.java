@@ -1,6 +1,6 @@
 package healthcalc;
 
-public class HealthCalcImpl implements HealthCalc {
+public class HealthCalcImpl implements CardiovascularMetrics, MetabolicMetrics {
 
     private static HealthCalcImpl instancia;
 
@@ -14,8 +14,8 @@ public class HealthCalcImpl implements HealthCalc {
         return instancia;
     }    
     
-    public float idealWeight(Person person) throws Exception {
-        float idealW;
+    public double getIdealBodyWeight(Person person) throws Exception {
+        double idealW;
         float height = person.height();
         Gender gender = person.gender();
 
@@ -25,14 +25,14 @@ public class HealthCalcImpl implements HealthCalc {
         if (gender == Gender.MALE) {
             idealW = (height-100-((height-150)/4));
         } else {
-            idealW = (float)(height-100-((height-150)/2.5));
+            idealW = (double)(height-100-((height-150)/2.5));
         }
 
         return idealW;
     }
 
-    public float basalMetabolicRate(Person person) throws Exception {
-        float BMR;
+    public double basalMetabolicRate(Person person) throws Exception {
+        double BMR;
         float height = person.height();
         Gender gender = person.gender();
         float weight = person.weight();
@@ -42,47 +42,47 @@ public class HealthCalcImpl implements HealthCalc {
             throw new Exception("Invalid parameters");
         }
         if (gender == Gender.MALE) {
-            BMR = (float)(10*weight+6.25*height-5*age+5);
+            BMR = (double)(10*weight+6.25*height-5*age+5);
         } else {
-            BMR = (float)(10*weight+6.25*height-5*age-161);
+            BMR = (double)(10*weight+6.25*height-5*age-161);
         }
 
         return BMR;
     }
 
-    public float bodyMassIndex(Person person) throws Exception {
-        float height = person.height();
-        float weight = person.weight();
+    // public float bodyMassIndex(Person person) throws Exception {
+    //     float height = person.height();
+    //     float weight = person.weight();
 
-        if (weight <= 0 || height <= 0) {
-            throw new Exception("Invalid parameters");
-        }
+    //     if (weight <= 0 || height <= 0) {
+    //         throw new Exception("Invalid parameters");
+    //     }
         
-        float BMI = weight/((float)Math.pow(height/100.0, 2));
-        return BMI; 
-    }
+    //     float BMI = weight/((float)Math.pow(height/100.0, 2));
+    //     return BMI; 
+    // }
 
-    public String heartRateZones(Person person) throws Exception {
-        int age = person.age();
+    // public String heartRateZones(Person person) throws Exception {
+    //     int age = person.age();
 
-        if (age <= 0) {
-            throw new Exception("Invalid parameters");
-        }
+    //     if (age <= 0) {
+    //         throw new Exception("Invalid parameters");
+    //     }
         
-        int heartRate = 220 - age;
+    //     int heartRate = 220 - age;
 
-        // Moderate-intensity
-        int minMod = Math.round((float)(heartRate*0.64));
-        int maxMod = Math.round((float)(heartRate*0.76));
+    //     // Moderate-intensity
+    //     int minMod = Math.round((float)(heartRate*0.64));
+    //     int maxMod = Math.round((float)(heartRate*0.76));
 
-        // Vigorous-intensity
-        int minVig = Math.round((float)(heartRate*0.77));
-        int maxVig = Math.round((float)(heartRate*0.93));
+    //     // Vigorous-intensity
+    //     int minVig = Math.round((float)(heartRate*0.77));
+    //     int maxVig = Math.round((float)(heartRate*0.93));
 
-        String result = "Moderate: " + minMod + "-" + maxMod + ", Vigorous: " + minVig + "-" + maxVig;
+    //     String result = "Moderate: " + minMod + "-" + maxMod + ", Vigorous: " + minVig + "-" + maxVig;
 
-        return result;
-    }
+    //     return result;
+    // }
         
 }
 

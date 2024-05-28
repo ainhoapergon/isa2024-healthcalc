@@ -2,7 +2,7 @@ package healthcalc;
 
 public class AmericanCalcDecorator extends HealthCalcDecorator {
 
-    public AmericanCalcDecorator(HealthCalc calculadora) {
+    public AmericanCalcDecorator(HealthCalcImpl calculadora) {
         super(calculadora, "AM");
         //TODO Auto-generated constructor stub
     }
@@ -15,8 +15,8 @@ public class AmericanCalcDecorator extends HealthCalcDecorator {
         try {
             // Convertimos a parámetros compatibles con HealthCalc
             float heightInCM = (height * 30.48f);      // Convertir pies a cm
-            float idealWeight = calculadora.idealWeight(new PersonImpl(heightInCM, gender));
-            float idealWeightInPounds = idealWeight*2.20462f;
+            double idealWeight = calculadora.getIdealBodyWeight(new PersonImpl(heightInCM, gender));
+            float idealWeightInPounds = (float)idealWeight*2.20462f;
             formatoIdealWeight(idealWeightInPounds, gender, height);
             return idealWeightInPounds;
         } catch (Exception e) {
@@ -35,8 +35,8 @@ public class AmericanCalcDecorator extends HealthCalcDecorator {
             // Convertimos a parámetros compatibles con HealthCalc
             float weightInKilograms = (weight / 2.20462f);      // Convertir libras a kilogramos
             float heightInCM = (height * 0.3048f)*100;          // Convertir pies a cm
-            float bmr = calculadora.basalMetabolicRate(new PersonImpl(weightInKilograms, heightInCM, gender, age));
-            float bmrInPounds = bmr;
+            double bmr = calculadora.basalMetabolicRate(new PersonImpl(weightInKilograms, heightInCM, gender, age));
+            float bmrInPounds = (float)bmr;
             formatoBMR(bmrInPounds, weight, height);
             return bmrInPounds;
         } catch (Exception e) {

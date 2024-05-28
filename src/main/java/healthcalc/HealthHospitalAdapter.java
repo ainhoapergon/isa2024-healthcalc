@@ -1,10 +1,10 @@
 package healthcalc;
 
 public class HealthHospitalAdapter implements HealthHospital {
-    private HealthCalc calculadora;
+    private HealthCalcImpl calculadora;
 
-    public HealthHospitalAdapter(HealthCalc calculadora) {
-        this.calculadora = calculadora;
+    public HealthHospitalAdapter(HealthCalcImpl modelo) {
+        this.calculadora = modelo;
     }
 
     @Override
@@ -27,7 +27,7 @@ public class HealthHospitalAdapter implements HealthHospital {
         Gender nuevoGenero = nuevoGenero(genero);
         
         try {
-            return (int)calculadora.idealWeight(new PersonImpl(alturaEnCm, nuevoGenero))*1000;   // Devuelve el peso ideal en gramos
+            return (int)calculadora.getIdealBodyWeight(new PersonImpl(alturaEnCm, nuevoGenero))*1000;   // Devuelve el peso ideal en gramos
         } catch(Exception e) {
             throw new Exception("No se ha podido calcular el peso ideal.");
         }

@@ -1,10 +1,10 @@
 package healthcalc;
 
 public abstract class HealthCalcDecorator implements HealthCalc {
-    protected HealthCalc calculadora;
+    protected HealthCalcImpl calculadora;
     protected String version;
 
-    public HealthCalcDecorator(HealthCalc calculadora, String version) {
+    public HealthCalcDecorator(HealthCalcImpl calculadora, String version) {
         this.version = version;
         this.calculadora = calculadora;
     }
@@ -21,7 +21,7 @@ public abstract class HealthCalcDecorator implements HealthCalc {
         }
     }
     
-    protected void formatoBMR(float bmr, float weight, float height) {
+    protected void formatoBMR(double bmr, float weight, float height) {
         if ("EU".equals(version)) {
             System.out.println(String.format("La persona con altura %.2f metros y un peso de %.0f gramos tiene un BMR de %.2f.", height, weight, bmr));
             System.out.println(String.format("The person with a height of %.2f meters and a weight of %.0f gramos has a BMR of %.2f.", height, weight, bmr));
