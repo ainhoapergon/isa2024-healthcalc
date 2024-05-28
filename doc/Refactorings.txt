@@ -16,7 +16,7 @@ Refactorings
         > New method in HealthHospitalAdapter to change char gender into enum gender.
 
 
-1. Person Interface
+2. Person Interface
     - Name: Long parameter list
     - Refactoring applied: Removing parameters by creating an object.
     - Type: Class refactoring.
@@ -29,3 +29,26 @@ Refactorings
         > Create class "PersonImpl".
         > Change every parameter by a new object PersonImpl in HealthCalc, HealthCalcImpl, HealthHospitalAdapter, HealthCalcDecorator (both European and American version).
         > Change every parameter by a new object in GUI (controller and main).
+
+3. CardiovascularMetrics Interface
+    - Name: Large interface
+    - Refactoring applied: Interface Segregation
+    - Type: Class refactoring.
+    - Changes description:
+        > New interface created called "CardiovascularMetrics".
+        > Adapt all the tests and the rest of the classes.
+    - Manual changes:
+        > Create interface "CardiovascularMetrics".
+        > Change the implementation in HealthCalcImpl using CardiovascularMetrics instead of HealthCalc.
+        > Change the initial "idealWeight()" name into "getIdealBodyWeight()".
+
+4. MetabolicMetrics Interface
+    - Name: Large interface
+    - Refactoring applied: Interface Segregation
+    - Type: Class refactoring.
+    - Changes description:
+        > New interface created called "MetabolicMetrics".
+        > Adapt all the tests and the rest of the classes.
+    - Manual changes:
+        > Create interface "MetabolicMetrics".
+        > Change the implementation in HealthCalcImpl using MetabolicMetrics instead of HealthCalc.
