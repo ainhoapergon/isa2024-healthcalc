@@ -7,11 +7,14 @@ public class EuropeanCalcDecorator extends HealthCalcDecorator {
     }
 
     @Override
-    public float idealWeight(float height, Gender gender) throws Exception {
+    public float idealWeight(Person person) throws Exception {
+        float height = person.height();
+        Gender gender = person.gender();
+
         try {
             // Convertimos a parámetros compatibles con HealthCalc
             float heightInCM = (height*100);         // Convertir m a cm
-            float idealWeight = calculadora.idealWeight(heightInCM, gender);
+            float idealWeight = calculadora.idealWeight(new PersonImpl(heightInCM, gender));
             formatoIdealWeight(idealWeight, gender, height);
             return idealWeight;
         } catch (Exception e) {
@@ -20,12 +23,17 @@ public class EuropeanCalcDecorator extends HealthCalcDecorator {
     }
 
     @Override
-    public float basalMetabolicRate(float weight, float height, Gender gender, int age) throws Exception {
+    public float basalMetabolicRate(Person person) throws Exception {
+        float height = person.height();
+        Gender gender = person.gender();
+        float weight = person.weight();
+        int age = person.age();
+
         try {
             // Convertimos a parámetros compatibles con HealthCalc
             float weightInKilograms = (weight/1000);     // Convertir gramos a kilogramos
             float heightInCM = (height*100);             // Convertir m a cm
-            float bmr = calculadora.basalMetabolicRate(weightInKilograms, heightInCM, gender, age);
+            float bmr = calculadora.basalMetabolicRate(new PersonImpl(weightInKilograms, heightInCM, gender, age));
             formatoBMR(bmr, weight, height);
             return bmr;
         } catch (Exception e) {
@@ -34,13 +42,13 @@ public class EuropeanCalcDecorator extends HealthCalcDecorator {
     }
 
     @Override
-    public float bodyMassIndex(float weight, float height) throws Exception {
+    public float bodyMassIndex(Person person) throws Exception {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'bodyMassIndex'");
     }
 
     @Override
-    public String heartRateZones(int age) throws Exception {
+    public String heartRateZones(Person person) throws Exception {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'heartRateZones'");
     }

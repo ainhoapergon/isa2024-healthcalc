@@ -15,7 +15,7 @@ public class HealthHospitalAdapter implements HealthHospital {
         Gender nuevoGenero = nuevoGenero(genero);
 
         try {
-            return calculadora.basalMetabolicRate(pesoEnKg, alturaEnCm, nuevoGenero, edad);
+            return calculadora.basalMetabolicRate(new PersonImpl(pesoEnKg, alturaEnCm, nuevoGenero, edad));
         } catch(Exception e) {
             throw new Exception("No se ha podido calcular el BMR.");
         }
@@ -27,7 +27,7 @@ public class HealthHospitalAdapter implements HealthHospital {
         Gender nuevoGenero = nuevoGenero(genero);
         
         try {
-            return (int)calculadora.idealWeight(alturaEnCm, nuevoGenero)*1000;   // Devuelve el peso ideal en gramos
+            return (int)calculadora.idealWeight(new PersonImpl(alturaEnCm, nuevoGenero))*1000;   // Devuelve el peso ideal en gramos
         } catch(Exception e) {
             throw new Exception("No se ha podido calcular el peso ideal.");
         }

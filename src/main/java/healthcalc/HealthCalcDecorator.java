@@ -34,6 +34,6 @@ public abstract class HealthCalcDecorator implements HealthCalc {
     }
 
     // Métodos abstractos 
-    public abstract float idealWeight(float height, Gender gender) throws Exception;
-    public abstract float basalMetabolicRate(float weight, float height, Gender gender, int age) throws Exception;
+    public abstract float idealWeight(Person person) throws Exception;
+    public abstract float basalMetabolicRate(Person person) throws Exception;
 }   

@@ -24,7 +24,7 @@ public class HealthCalcTest {
 		float heightMen = 180;
 		Gender genderMen = Gender.MALE;
 		float expectedMen = (heightMen-100-((heightMen-150)/4));
-		assertEquals(expectedMen, calculator.idealWeight(heightMen, genderMen));
+		assertEquals(expectedMen, calculator.idealWeight(new PersonImpl(heightMen, genderMen)));
 	}
 	
 	@Test
@@ -33,7 +33,7 @@ public class HealthCalcTest {
 		int heightWomen = 165;
 		Gender genderWomen = Gender.FEMALE;
 		float expectedMen = (float)(heightWomen-100-((heightWomen-150)/2.5));
-		assertEquals(expectedMen, calculator.idealWeight(heightWomen, genderWomen));
+		assertEquals(expectedMen, calculator.idealWeight(new PersonImpl(heightWomen, genderWomen)));
 	}
 
 	@Test
@@ -41,8 +41,8 @@ public class HealthCalcTest {
 	public void testIdealWeightInvalidHeight() throws Exception {
 		int invalidHeight = -10;
 		Gender gender = Gender.FEMALE;
-		assertThrows(Exception.class, () -> calculator.idealWeight(invalidHeight, gender));
-		assertEquals("Invalid parameters", (assertThrows(Exception.class, () -> calculator.idealWeight(invalidHeight, gender))).getMessage());
+		assertThrows(Exception.class, () -> calculator.idealWeight(new PersonImpl(invalidHeight, gender)));
+		assertEquals("Invalid parameters", (assertThrows(Exception.class, () -> calculator.idealWeight(new PersonImpl(invalidHeight, gender)))).getMessage());
 	}
 	
 	// Este test ya no tiene sentido porque tratamos con un ENUM ahora de solo dos opciones, no puede haber una inválida.
@@ -69,7 +69,7 @@ public class HealthCalcTest {
 		Gender genderMen = Gender.MALE;
 		int ageMen = 50;
 		float BMRMen = (float)(10*weightMen+6.25*heightMen-5*ageMen+5);
-		assertEquals(BMRMen, calculator.basalMetabolicRate(weightMen, heightMen, genderMen, ageMen));
+		assertEquals(BMRMen, calculator.basalMetabolicRate(new PersonImpl(weightMen, heightMen, genderMen, ageMen)));
 	}
 
 	@Test
@@ -80,7 +80,7 @@ public class HealthCalcTest {
 		Gender genderWomen = Gender.FEMALE;
 		int ageWomen = 30;
 		float BMRWomen = (10*weightWomen+6.25f*heightWomen-5*ageWomen-161);
-		assertEquals(BMRWomen, calculator.basalMetabolicRate(weightWomen, heightWomen, genderWomen, ageWomen));
+		assertEquals(BMRWomen, calculator.basalMetabolicRate(new PersonImpl(weightWomen, heightWomen, genderWomen, ageWomen)));
 	}
 
 	// Test innecesario tras el cambio de char a enum de Gender
@@ -102,8 +102,8 @@ public class HealthCalcTest {
 		int height = 165;
 		Gender gender = Gender.FEMALE;
 		int invalidAge = 0;
-		assertThrows(Exception.class, () -> calculator.basalMetabolicRate(weight, height, gender, invalidAge));
-		assertEquals("Invalid parameters", (assertThrows(Exception.class, () -> calculator.basalMetabolicRate(weight, height, gender, invalidAge))).getMessage());
+		assertThrows(Exception.class, () -> calculator.basalMetabolicRate(new PersonImpl(weight, height, gender, invalidAge)));
+		assertEquals("Invalid parameters", (assertThrows(Exception.class, () -> calculator.basalMetabolicRate(new PersonImpl(weight, height, gender, invalidAge)))).getMessage());
 	}
 
 
@@ -114,8 +114,8 @@ public class HealthCalcTest {
 		int invalidHeight = -10;
 		Gender gender = Gender.FEMALE;
 		int age = 30;
-		assertThrows(Exception.class, () -> calculator.basalMetabolicRate(weight, invalidHeight, gender, age));
-		assertEquals("Invalid parameters", (assertThrows(Exception.class, () -> calculator.basalMetabolicRate(weight, invalidHeight, gender, age))).getMessage());
+		assertThrows(Exception.class, () -> calculator.basalMetabolicRate(new PersonImpl(weight, invalidHeight, gender, age)));
+		assertEquals("Invalid parameters", (assertThrows(Exception.class, () -> calculator.basalMetabolicRate(new PersonImpl(weight, invalidHeight, gender, age)))).getMessage());
 	}
 
 	@Test
@@ -125,7 +125,7 @@ public class HealthCalcTest {
 		int height = 175;
 		Gender gender = Gender.FEMALE;
 		int age = 35;
-		assertThrows(Exception.class, () -> calculator.basalMetabolicRate(invalidWeight, height, gender, age));
-		assertEquals("Invalid parameters", (assertThrows(Exception.class, () -> calculator.basalMetabolicRate(invalidWeight, height, gender, age))).getMessage());
+		assertThrows(Exception.class, () -> calculator.basalMetabolicRate(new PersonImpl(invalidWeight, height, gender, age)));
+		assertEquals("Invalid parameters", (assertThrows(Exception.class, () -> calculator.basalMetabolicRate(new PersonImpl(invalidWeight, height, gender, age)))).getMessage());
 	}
 }
