@@ -8,10 +8,24 @@ Refactorings
     - Changes description:
         > New enum created called "Gender".
         > Change every 'm' char for Gender.MALE and every 'w' char for Gender.FEMALE
-        > Adapt the tests.
-        > Adapt the rest of the classes.
+        > Adapt all the tests and the rest of the classes.
     - Manual changes:
-        > New enum created called "Gender".
+        > Create enum "Gender".
         > Change "char" for "Gender" in HealthCalc, HealthCalcImpl, HealthHospitalAdapter, HealthCalcDecorator (including European version and American version).
         > Change "char" for "Gender" in GUI (controller and main)
         > New method in HealthHospitalAdapter to change char gender into enum gender.
+
+
+1. Person Interface
+    - Name: Long parameter list
+    - Refactoring applied: Removing parameters by creating an object.
+    - Type: Class refactoring.
+    - Changes description:
+        > New interface created called "Person".
+        > New class created called "PersonImpl" with methods that return the person's parameters.
+        > Adapt all the tests and the rest of the classes.
+    - Manual changes:
+        > Create interface "Person".
+        > Create class "PersonImpl".
+        > Change every parameter by a new object PersonImpl in HealthCalc, HealthCalcImpl, HealthHospitalAdapter, HealthCalcDecorator (both European and American version).
+        > Change every parameter by a new object in GUI (controller and main).
