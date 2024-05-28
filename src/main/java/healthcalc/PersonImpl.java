@@ -14,6 +14,12 @@ public class PersonImpl implements Person {
         this.age = age;
     }
 
+    public PersonImpl(float height, Gender gender) {
+        this.height = height;
+        this.gender = gender;
+    }
+    
+
     @Override
     public float weight() {
         return weight;

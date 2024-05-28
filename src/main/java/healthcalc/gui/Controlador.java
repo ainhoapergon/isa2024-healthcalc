@@ -82,21 +82,21 @@ public class Controlador implements ActionListener {
 								genderString = vista.getGender();
 								gender = Gender.valueOf(genderString.toUpperCase());
 								height = vista.getTextHeight();
-								return modelo.idealWeight(height, gender);
+								return modelo.idealWeight(new PersonImpl(height, gender));
 							case "Basal Metabolic Rate":
 								genderString = vista.getGender();
 								gender = Gender.valueOf(genderString.toUpperCase());
 								age = vista.getAge();
 								weight = vista.getWeight();
 								height = vista.getHeight();
-								return modelo.basalMetabolicRate(weight, height, gender, age);
-							case "Body Mass Index":
-								height = vista.getTextHeight();
-								weight = vista.getWeight();
-								return modelo.bodyMassIndex(weight, height);
-							case "Heart Rate Zones":
-								age = vista.getAge();
-								return modelo.heartRateZones(age);
+								return modelo.basalMetabolicRate(new PersonImpl(weight, height, gender, age));
+							// case "Body Mass Index":
+							// 	height = vista.getTextHeight();
+							// 	weight = vista.getWeight();
+							// 	return modelo.bodyMassIndex(weight, height);
+							// case "Heart Rate Zones":
+							// 	age = vista.getAge();
+							// 	return modelo.heartRateZones(age);
 							default:
 								throw new IllegalArgumentException("Invalid calculation type selected.");
 						}

@@ -14,8 +14,10 @@ public class HealthCalcImpl implements HealthCalc {
         return instancia;
     }    
     
-    public float idealWeight(float height, Gender gender) throws Exception {
+    public float idealWeight(Person person) throws Exception {
         float idealW;
+        float height = person.height();
+        Gender gender = person.gender();
 
         if (height <= 0 || (gender != Gender.MALE && gender != Gender.FEMALE)) {
             throw new Exception("Invalid parameters");
@@ -29,8 +31,12 @@ public class HealthCalcImpl implements HealthCalc {
         return idealW;
     }
 
-    public float basalMetabolicRate(float weight, float height, Gender gender, int age) throws Exception {
+    public float basalMetabolicRate(Person person) throws Exception {
         float BMR;
+        float height = person.height();
+        Gender gender = person.gender();
+        float weight = person.weight();
+        int age = person.age();
 
         if (weight <= 0 || height <= 0 || age <= 0 || (gender != Gender.MALE && gender != Gender.FEMALE)) {
             throw new Exception("Invalid parameters");
@@ -44,7 +50,10 @@ public class HealthCalcImpl implements HealthCalc {
         return BMR;
     }
 
-    public float bodyMassIndex(float weight, float height) throws Exception {
+    public float bodyMassIndex(Person person) throws Exception {
+        float height = person.height();
+        float weight = person.weight();
+
         if (weight <= 0 || height <= 0) {
             throw new Exception("Invalid parameters");
         }
@@ -53,7 +62,9 @@ public class HealthCalcImpl implements HealthCalc {
         return BMI; 
     }
 
-    public String heartRateZones(int age) throws Exception {
+    public String heartRateZones(Person person) throws Exception {
+        int age = person.age();
+
         if (age <= 0) {
             throw new Exception("Invalid parameters");
         }

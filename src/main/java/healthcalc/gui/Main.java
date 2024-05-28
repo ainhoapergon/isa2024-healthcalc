@@ -10,6 +10,7 @@ import healthcalc.HealthCalcImpl;
 import healthcalc.HealthCalcProxy;
 import healthcalc.HealthHospital;
 import healthcalc.HealthHospitalAdapter;
+import healthcalc.PersonImpl;
 
 public class Main {
 
@@ -82,10 +83,10 @@ public class Main {
 					// Ejemplo: Hombre de 78 kg, 1.83m, 24 años  
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					System.out.println("Calculadora Versión Americana:");			 
-					americanCalc.basalMetabolicRate(171.961f, 6.003937f, Gender.MALE, 24);	   // Recordatorio: peso en libras y altura en pies.
+					americanCalc.basalMetabolicRate(new PersonImpl(171.961f, 6.003937f, Gender.MALE, 24));	   // Recordatorio: peso en libras y altura en pies.
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					System.out.println("Calculadora Versión Europea:");    			 
-					europeanCalc.basalMetabolicRate(78000f, 1.83f, Gender.MALE, 24);          // Recordatorio: peso en gramos y altura en metros.
+					europeanCalc.basalMetabolicRate(new PersonImpl(78000f, 1.83f, Gender.MALE, 24));          // Recordatorio: peso en gramos y altura en metros.
 
 				} catch (Exception e) {
 					e.printStackTrace();

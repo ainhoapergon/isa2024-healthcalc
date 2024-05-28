@@ -18,7 +18,7 @@ public interface HealthCalc {
 	 * @return 		 	The ideal weight of the person (kg).
 	 * @throws Exception 
 	 */
-	public float idealWeight(float height, Gender gender) throws Exception;
+	public float idealWeight(Person person) throws Exception;
 	
 	/**
 	 * Calculate the Basal Metabolic Rate (BMR) of a person with the following formula:
@@ -32,7 +32,7 @@ public interface HealthCalc {
 	 * @return	  		The Basal Metabolic Rate of the person.
 	 * @throws Exception
 	 */
-	public float basalMetabolicRate(float weight, float height, Gender gender, int age) throws Exception;
+	public float basalMetabolicRate(Person person) throws Exception;
 
 
 	/**
@@ -44,7 +44,7 @@ public interface HealthCalc {
 	 * @return	  		The Body Mass Index of the person.
 	 * @throws Exception
 	 */
-	public float bodyMassIndex(float weight, float height) throws Exception;
+	public float bodyMassIndex(Person person) throws Exception;
 
 	/**
 	 * Calculate the estimated heart rate zones of a person using the age.
@@ -60,5 +60,5 @@ public interface HealthCalc {
 	 * @return	  		The estimated heart rate zones.
 	 * @throws Exception
 	 */
-	public String heartRateZones(int age) throws Exception;
+	public String heartRateZones(Person person) throws Exception;
 }
